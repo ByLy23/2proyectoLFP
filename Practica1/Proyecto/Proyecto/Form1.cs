@@ -12,6 +12,7 @@ namespace Proyecto
 {
     public partial class Form1 : Form
     {
+
         public Boolean verificaGuardado = false;
         public static int numeroErrores = 0;
         private static String testoguardado = "";
@@ -99,18 +100,18 @@ namespace Proyecto
 
 
 
-      
 
-          
+
+
         private void GuardarComoToolStripMenuItem_Click(object sender, EventArgs e)
         {
             foreach (var item in toks)
             {
-                Console.WriteLine(item.NombreToken+" FILA: "+item.Fila+" COLUMNA: "+item.Columna+" TOKEN: "+item.Lexema1);
+                Console.WriteLine(item.NombreToken + " FILA: " + item.Fila + " COLUMNA: " + item.Columna + " TOKEN: " + item.Lexema1);
             }
             foreach (var item in erros)
             {
-                Console.WriteLine(item.NombreError1+" "+item.Simbolo1+" FILA: "+item.Fila+" COLUMNA: "+item.Columna);
+                Console.WriteLine(item.NombreError1 + " " + item.Simbolo1 + " FILA: " + item.Fila + " COLUMNA: " + item.Columna);
             }
         }
 
@@ -131,19 +132,20 @@ namespace Proyecto
             columna = 0;
             toks.Clear();
             erros.Clear();
+            arbolito.Nodes.Clear();
             analizarTexto(lienzo.Text);
-            pintarTexto();
-           
+            // pintarTexto();
+
             if (compruebaErrores)
             {
-                VerErrores();
+             //   VerErrores();
             }
             else
             {
                 mostrarNodo();
-                VerTokens();
+             //   VerTokens();
             }
-           
+
         }
         private void analizarTexto(String rish)
         {
@@ -168,8 +170,8 @@ namespace Proyecto
                         {
                             estado = 0;
                             lexema = lexema + c;
-                            agregarToken(lexema, "Dos Puntos",3, fila, columna);
-                          
+                            agregarToken(lexema, "Dos Puntos", 3, fila, columna);
+
                             lexema = "";
                         }
                         else if (c == '{')
@@ -186,7 +188,7 @@ namespace Proyecto
                             agregarToken(lexema, "Llave Cerrada", 2, fila, columna);
                             lexema = "";
                         }
-                        else if (c==';')
+                        else if (c == ';')
                         {
                             estado = 0;
                             lexema = lexema + c;
@@ -219,7 +221,7 @@ namespace Proyecto
                             compruebaErrores = true;
                             Console.WriteLine("Error: " + c + " Fila: " + fila + " Columna: " + columna);
 
-                            agregarError(c+"", fila, columna);
+                            agregarError(c + "", fila, columna);
                             lexema = "";
 
                             //error de caracter
@@ -235,7 +237,7 @@ namespace Proyecto
                         else if (c == '\r' || c == '\t' || c == '\f' || c == '\b')
                         {
                             estado = 0;
-                             verificarToken(lexema,"tipo",0,fila,columna);
+                            verificarToken(lexema, "tipo", 0, fila, columna);
                             lexema = "";
                         }
                         else if (c == '\n')
@@ -277,7 +279,7 @@ namespace Proyecto
                         {
                             agregarToken(lexema, "Numero", 6, fila, columna);
                             estado = 0;
-                           
+
                             lexema = "";
                         }
                         else if (c == '\n')
@@ -286,14 +288,14 @@ namespace Proyecto
                             estado = 0;
                             columna = 0;
                             fila++;
-                            
+
                             lexema = "";
                         }
                         else if (c == ' ')
                         {
                             agregarToken(lexema, "Numero", 6, fila, columna);
                             estado = 0;
-                           
+
                             lexema = "";
                         }
                         else
@@ -415,6 +417,7 @@ namespace Proyecto
         private String com_mes;
         private String dias;
         private String com_dia;
+        private String com_descripcion;
         private void mostrarNodo()
         {
 
@@ -422,18 +425,26 @@ namespace Proyecto
             {
                 if (toks.ElementAt(i).IdToken1.Equals(5))
                 {
-                    if (toks.ElementAt(i-2).IdToken1.Equals(7))
+                    if (toks.ElementAt(i - 2).IdToken1.Equals(7))
                     {
                         nuevo = new TreeNode(toks.ElementAt(i).Lexema1);
                         arbolito.Nodes.Add(nuevo);
                         planificador = toks.ElementAt(i).Lexema1;
                     }
+                    if (toks.ElementAt(i-2).IdToken1.Equals(11))
+                    {
+                        dia.Nodes.Add(toks.ElementAt(i).Lexema1);
+                    }
+                    if (toks.ElementAt(i-2).IdToken1.Equals(12))
+                    {
+                        dia.Nodes.Add(toks.ElementAt(i).Lexema1);
+                    }
                 }
-                if (toks.ElementAt(i).IdToken1.Equals(5) && toks.ElementAt(i-2).IdToken1.Equals(7))
+                if (toks.ElementAt(i).IdToken1.Equals(5) && toks.ElementAt(i - 2).IdToken1.Equals(7))
                 {
                     comparacion_planificador = toks.ElementAt(i).Lexema1;
                 }
-                if (toks.ElementAt(i).IdToken1.Equals(6) && toks.ElementAt(i-2).IdToken1.Equals(8) && comparacion_planificador.Equals(planificador))
+                if (toks.ElementAt(i).IdToken1.Equals(6) && toks.ElementAt(i - 2).IdToken1.Equals(8) && comparacion_planificador.Equals(planificador))
                 {
                     com_anio = toks.ElementAt(i).Lexema1;
                 }
@@ -443,28 +454,28 @@ namespace Proyecto
                 }
                 if (toks.ElementAt(i).IdToken1.Equals(6))
                 {
-                    if (toks.ElementAt(i-2).IdToken1.Equals(8))
+                    if (toks.ElementAt(i - 2).IdToken1.Equals(8))
                     {
                         if (comparacion_planificador.Equals(planificador))
                         {
-                             anio = new TreeNode(toks.ElementAt(i).Lexema1);
+                            anio = new TreeNode(toks.ElementAt(i).Lexema1);
                             nuevo.Nodes.Add(anio);
                             anios = toks.ElementAt(i).Lexema1;
                         }
                     }
-                    else if (toks.ElementAt(i-2).IdToken1.Equals(9))
+                    else if (toks.ElementAt(i - 2).IdToken1.Equals(9))
                     {
                         if (comparacion_planificador.Equals(planificador))
                         {
                             if (com_anio.Equals(anios))
                             {
-                                 mes = new TreeNode(toks.ElementAt(i).Lexema1);
+                                mes = new TreeNode(toks.ElementAt(i).Lexema1);
                                 anio.Nodes.Add(mes);
                                 meses = toks.ElementAt(i).Lexema1;
                             }
                         }
                     }
-                    else if (toks.ElementAt(i-2).IdToken1.Equals(10))
+                    else if (toks.ElementAt(i - 2).IdToken1.Equals(10))
                     {
                         if (comparacion_planificador.Equals(planificador))
                         {
@@ -474,130 +485,18 @@ namespace Proyecto
                                 {
                                     dia = new TreeNode(toks.ElementAt(i).Lexema1);
                                     mes.Nodes.Add(dia);
+                                    dias = toks.ElementAt(i).Lexema1;
+                                    //DateTime tiem = new DateTime(Int32.Parse(anios), Int32.Parse(meses), Int32.Parse(dias));
+                                   // Console.WriteLine(tiem);
+                                    //timepo.Value = tiem;
                                 }
                             }
                         }
                     }
                 }
             }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-           /* for (int i = 0; i < toks.Count(); i++)
-            {
-                if (toks.ElementAt(i).IdToken1.Equals(5) && toks.ElementAt(i-2).IdToken1.Equals(7))
-                { if (item.IdToken1.Equals(7))
-                {
-                    comparacion_planificador = item.Lexema1;
-                    nuevo = new TreeNode(item.Lexema1);
-                    arbolito.Nodes.Add(nuevo);
-                    
-                }
-                  planificador = toks.ElementAt(i).Lexema1;
-                 
-                      for (int j = 0; j < toks.Count(); j++)
-                        //PLANIFICADOR
-                       {
-                        if (toks.ElementAt(j).IdToken1.Equals(5) && toks.ElementAt(j - 2).IdToken1.Equals(7))
-                        {
-                            comparacion_planificador = toks.ElementAt(j).Lexema1;
-                        }                       
-                            if (toks.ElementAt(j).IdToken1.Equals(6)&& toks.ElementAt(j - 2).IdToken1.Equals(8) && comparacion_planificador.Equals(planificador))
-                            {
-                            anios = toks.ElementAt(j).Lexema1;
-                                TreeNode anio = new TreeNode(toks.ElementAt(j).Lexema1);
-                                nuevo.Nodes.Add(anio);
-                            //ANIOS
-                            for (int k = 0; k < toks.Count();   k++)
-                            {
-                                if (toks.ElementAt(k).IdToken1.Equals(5) && toks.ElementAt(k - 2).IdToken1.Equals(7))
-                                {
-                                    comparacion_planificador = toks.ElementAt(k).Lexema1;
-
-                                }
-
-                                if (toks.ElementAt(k).IdToken1.Equals(6) && toks.ElementAt(k - 2).IdToken1.Equals(8) && comparacion_planificador.Equals(planificador))
-                                {
-                                    com_anio = toks.ElementAt(k).Lexema1;
-                                    
-                                }
-                                else
-                                {
-                                    esperanza = toks.ElementAt(k).Lexema1;
-                                }
-                                if (toks.ElementAt(k).IdToken1.Equals(6) && toks.ElementAt(k - 2).IdToken1.Equals(9))
-                                {
-                                    if ( comparacion_planificador.Equals(planificador))
-                                    {
-                                        if ( com_anio.Equals(anios)|| esperanza.Equals(anios))
-                                        {
-                                            mes = toks.ElementAt(k).Lexema1;
-                                            TreeNode meses = new TreeNode(toks.ElementAt(k).Lexema1);
-                                            anio.Nodes.Add(meses);
-                                        }
-                                        else
-                                        {
-                                           // esperanza = toks.ElementAt(k).Lexema1;
-                                            break;
-                                        }
-                                   
-                                    }
-                                   
-                                             
-                                }
-                               
-                              //  if (toks.ElementAt(k).IdToken1.Equals(6) && toks.ElementAt(k-2).IdToken1.Equals(9))
-                                //{
-
-                                //}
-/*
-                                if (toks.ElementAt(k).IdToken1.Equals(6) && toks.ElementAt(k - 2).IdToken1.Equals(8) && comparacion_planificador.Equals(planificador))
-                                {
-                                    com_anio = toks.ElementAt(k).Lexema1;
-                                }
-                                    if (toks.ElementAt(k).IdToken1.Equals(6) && toks.ElementAt(k - 2).IdToken1.Equals(9) && comparacion_planificador.Equals(planificador) && com_anio.Equals(anios))
-                                    {
-                                        mes = toks.ElementAt(k).Lexema1;
-                                        TreeNode meses = new TreeNode(toks.ElementAt(k).Lexema1);
-                                        anio.Nodes.Add(meses);
-                                    }
-                                
-                            }
-                           }
-                        
-                       }
-                }
-            }
-            foreach (var item in toks)
-            {
-                if (item.IdToken1.Equals(5))
-                {
-                    nuevo = new TreeNode(item.Lexema1);
-                    arbolito.Nodes.Add(nuevo);
-                }
-            }*/
         }
-       private void VerTokens()
+        private void VerTokens()
         {
             String pagina;
             pagina = "<html>" +
@@ -615,9 +514,9 @@ namespace Proyecto
             for (int i = 0; i < toks.Count(); i++)
             {
                 t = "";
-                t="<tr>"+
-                    "<td><strong>"+ (i + 1).ToString()+
-                "</strong></td>" + 
+                t = "<tr>" +
+                    "<td><strong>" + (i + 1).ToString() +
+                "</strong></td>" +
                 "<td>" + toks.ElementAt(i).Lexema1 +
                 "</td>" +
                 "<td>" + toks.ElementAt(i).IdToken1 +
@@ -633,7 +532,7 @@ namespace Proyecto
            "</html>";
             File.WriteAllText("Tokens.html", pagina);
             System.Diagnostics.Process.Start("Tokens.html");
-            
+
         }
         private void buscar()
         {
@@ -667,7 +566,7 @@ namespace Proyecto
                 "</td>" +
                 "<td>" + erros.ElementAt(i).Simbolo1 +
                 "</td>" +
-                 "<td>" +erros.ElementAt(i).NombreError1 +
+                 "<td>" + erros.ElementAt(i).NombreError1 +
                 "</td>" +
                 "</tr>";
                 cadena = cadena + t;
@@ -687,6 +586,125 @@ namespace Proyecto
         private void TreeView1_AfterSelect(object sender, TreeViewEventArgs e)
         {
 
+        }
+
+        private void Timepo_ValueChanged(object sender, EventArgs e)
+        {
+            timepo.CalendarMonthBackground = Color.Red;
+        }
+        string comparas;
+        private void Arbolito_MouseDoubleClick(object sender, MouseEventArgs e)
+        {
+            String com = arbolito.SelectedNode.Text;
+            for (int i = 0; i < toks.Count(); i++)
+            {
+                if (toks.ElementAt(i).IdToken1.Equals(5) && toks.ElementAt(i-2).IdToken1.Equals(11))
+                {
+                    if (com.Equals(toks.ElementAt(i).Lexema1))
+                    {
+                        descripcionxd.Text = toks.ElementAt(i).Lexema1;
+                        break;
+                    }
+                }
+                else if (toks.ElementAt(i).IdToken1.Equals(5) && toks.ElementAt(i - 2).IdToken1.Equals(12))
+                {
+                    if (com.Equals(toks.ElementAt(i).Lexema1))
+                    {
+
+                        String aux = toks.ElementAt(i).Lexema1;
+                        String aux2;
+                        Console.WriteLine(aux);
+                        char[] mychar = { '”', '"', '”' };
+                        aux2 = aux.Trim(mychar);
+                        try
+                        {
+
+
+                            cajitaDibujos.Image = Image.FromFile(@aux2);
+                        }
+                        catch(Exception ex)
+                        {
+                            MessageBox.Show("No es posible encontrar el archivo, se reiniciara su compu okno xD");
+                        }
+                       // descripcionxd.Text = toks.ElementAt(i).Lexema1;
+                        break;
+                    }
+                }
+            }
+            
+            for (int i = 0; i < toks.Count(); i++)
+            {
+                if (toks.ElementAt(i).IdToken1.Equals(5))
+                {
+                    if (toks.ElementAt(i - 2).IdToken1.Equals(7))
+                    {
+                        planificador = toks.ElementAt(i).Lexema1;
+                    }
+                    if (toks.ElementAt(i - 2).IdToken1.Equals(11))
+                    {
+                        if (com.Equals(com_dia))
+                        {
+                        DateTime tiem = new DateTime(Int32.Parse(anios),Int32.Parse(meses), Int32.Parse(com_dia));
+                        timepo.Value = tiem;
+                        }
+                       
+                    }
+                }
+                if (toks.ElementAt(i).IdToken1.Equals(5) && toks.ElementAt(i - 2).IdToken1.Equals(7))
+                {
+                    comparacion_planificador = toks.ElementAt(i).Lexema1;
+                }
+                if (toks.ElementAt(i).IdToken1.Equals(6) && toks.ElementAt(i - 2).IdToken1.Equals(8) && comparacion_planificador.Equals(planificador))
+                {
+                    com_anio = toks.ElementAt(i).Lexema1;
+                }
+                if (toks.ElementAt(i).IdToken1.Equals(6) && toks.ElementAt(i - 2).IdToken1.Equals(9) && comparacion_planificador.Equals(planificador) && com_anio.Equals(anios))
+                {
+                    com_mes = toks.ElementAt(i).Lexema1;
+                }
+                if (toks.ElementAt(i).IdToken1.Equals(6) && toks.ElementAt(i - 2).IdToken1.Equals(10) && comparacion_planificador.Equals(planificador) && com_anio.Equals(anios) && com_mes.Equals(meses))
+                {
+                    com_dia = toks.ElementAt(i).Lexema1;
+                }
+                if (toks.ElementAt(i).IdToken1.Equals(6))
+                {
+                    if (toks.ElementAt(i - 2).IdToken1.Equals(8))
+                    {
+                        if (comparacion_planificador.Equals(planificador))
+                        {
+                            anios = toks.ElementAt(i).Lexema1;
+                        }
+                    }
+                    else if (toks.ElementAt(i - 2).IdToken1.Equals(9))
+                    {
+                        if (comparacion_planificador.Equals(planificador))
+                        {
+                            if (com_anio.Equals(anios))
+                            {
+                                meses = toks.ElementAt(i).Lexema1;
+                            }
+                        }
+                    }
+                    else if (toks.ElementAt(i - 2).IdToken1.Equals(10))
+                    {
+
+                        if (comparacion_planificador.Equals(planificador))
+                        {
+                            if (com_anio.Equals(anios))
+                            {
+                                if (com_mes.Equals(meses))
+                                {                                      
+                                    
+                                    dias = toks.ElementAt(i).Lexema1;
+                                   
+                                 //   Console.WriteLine(tiem);
+                                   
+                                }
+                            }
+                        }
+                    }
+                }
+            }
         }
     }
 }

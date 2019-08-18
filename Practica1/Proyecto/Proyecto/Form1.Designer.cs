@@ -36,14 +36,12 @@
             this.analizarToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.acercaDeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.salirToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.panel1 = new System.Windows.Forms.Panel();
+            this.cajitaDibujos = new System.Windows.Forms.PictureBox();
+            this.descripcionxd = new System.Windows.Forms.Label();
             this.arbolito = new System.Windows.Forms.TreeView();
-            this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
-            this.label1 = new System.Windows.Forms.Label();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.timepo = new System.Windows.Forms.DateTimePicker();
             this.menuStrip1.SuspendLayout();
-            this.panel1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.cajitaDibujos)).BeginInit();
             this.SuspendLayout();
             // 
             // lienzo
@@ -66,7 +64,7 @@
             this.salirToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(884, 24);
+            this.menuStrip1.Size = new System.Drawing.Size(1128, 24);
             this.menuStrip1.TabIndex = 3;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -112,61 +110,57 @@
             this.salirToolStripMenuItem.Text = "Salir";
             this.salirToolStripMenuItem.Click += new System.EventHandler(this.SalirToolStripMenuItem_Click);
             // 
-            // panel1
+            // cajitaDibujos
             // 
-            this.panel1.Controls.Add(this.pictureBox1);
-            this.panel1.Controls.Add(this.label1);
-            this.panel1.Location = new System.Drawing.Point(551, 27);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(321, 411);
-            this.panel1.TabIndex = 5;
+            this.cajitaDibujos.Location = new System.Drawing.Point(801, 198);
+            this.cajitaDibujos.Name = "cajitaDibujos";
+            this.cajitaDibujos.Size = new System.Drawing.Size(315, 240);
+            this.cajitaDibujos.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.cajitaDibujos.TabIndex = 1;
+            this.cajitaDibujos.TabStop = false;
+            // 
+            // descripcionxd
+            // 
+            this.descripcionxd.Location = new System.Drawing.Point(801, 27);
+            this.descripcionxd.Name = "descripcionxd";
+            this.descripcionxd.Size = new System.Drawing.Size(315, 158);
+            this.descripcionxd.TabIndex = 0;
             // 
             // arbolito
             // 
             this.arbolito.Location = new System.Drawing.Point(390, 53);
             this.arbolito.Name = "arbolito";
-            this.arbolito.Size = new System.Drawing.Size(155, 385);
+            this.arbolito.Size = new System.Drawing.Size(405, 385);
             this.arbolito.TabIndex = 7;
             this.arbolito.AfterSelect += new System.Windows.Forms.TreeViewEventHandler(this.TreeView1_AfterSelect);
+            this.arbolito.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.Arbolito_MouseDoubleClick);
             // 
-            // dateTimePicker1
+            // timepo
             // 
-            this.dateTimePicker1.Location = new System.Drawing.Point(390, 27);
-            this.dateTimePicker1.Name = "dateTimePicker1";
-            this.dateTimePicker1.Size = new System.Drawing.Size(155, 20);
-            this.dateTimePicker1.TabIndex = 6;
-            // 
-            // label1
-            // 
-            this.label1.Location = new System.Drawing.Point(3, 7);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(315, 158);
-            this.label1.TabIndex = 0;
-            // 
-            // pictureBox1
-            // 
-            this.pictureBox1.Location = new System.Drawing.Point(6, 168);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(315, 240);
-            this.pictureBox1.TabIndex = 1;
-            this.pictureBox1.TabStop = false;
+            this.timepo.CustomFormat = "dd/mm/yyyy";
+            this.timepo.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
+            this.timepo.Location = new System.Drawing.Point(513, 27);
+            this.timepo.Name = "timepo";
+            this.timepo.Size = new System.Drawing.Size(155, 20);
+            this.timepo.TabIndex = 6;
+            this.timepo.ValueChanged += new System.EventHandler(this.Timepo_ValueChanged);
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(884, 450);
+            this.ClientSize = new System.Drawing.Size(1128, 450);
+            this.Controls.Add(this.timepo);
+            this.Controls.Add(this.cajitaDibujos);
             this.Controls.Add(this.arbolito);
-            this.Controls.Add(this.dateTimePicker1);
-            this.Controls.Add(this.panel1);
+            this.Controls.Add(this.descripcionxd);
             this.Controls.Add(this.lienzo);
             this.Controls.Add(this.menuStrip1);
             this.Name = "Form1";
             this.Text = "Form1";
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
-            this.panel1.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.cajitaDibujos)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -182,11 +176,10 @@
         private System.Windows.Forms.ToolStripMenuItem analizarToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem acercaDeToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem salirToolStripMenuItem;
-        private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.TreeView arbolito;
-        private System.Windows.Forms.DateTimePicker dateTimePicker1;
-        private System.Windows.Forms.PictureBox pictureBox1;
-        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.DateTimePicker timepo;
+        private System.Windows.Forms.PictureBox cajitaDibujos;
+        private System.Windows.Forms.Label descripcionxd;
     }
 }
 
