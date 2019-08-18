@@ -1,0 +1,10 @@
+A:\PROGRAMACION\LENGUAJES\2do Semestre\Practica1\Proyecto\Proyecto\bin\Debug\Proyecto.exe.config
+A:\PROGRAMACION\LENGUAJES\2do Semestre\Practica1\Proyecto\Proyecto\bin\Debug\Proyecto.exe
+A:\PROGRAMACION\LENGUAJES\2do Semestre\Practica1\Proyecto\Proyecto\bin\Debug\Proyecto.pdb
+A:\PROGRAMACION\LENGUAJES\2do Semestre\Practica1\Proyecto\Proyecto\obj\Debug\Proyecto.csprojAssemblyReference.cache
+A:\PROGRAMACION\LENGUAJES\2do Semestre\Practica1\Proyecto\Proyecto\obj\Debug\Proyecto.Form1.resources
+A:\PROGRAMACION\LENGUAJES\2do Semestre\Practica1\Proyecto\Proyecto\obj\Debug\Proyecto.Properties.Resources.resources
+A:\PROGRAMACION\LENGUAJES\2do Semestre\Practica1\Proyecto\Proyecto\obj\Debug\Proyecto.csproj.GenerateResource.cache
+A:\PROGRAMACION\LENGUAJES\2do Semestre\Practica1\Proyecto\Proyecto\obj\Debug\Proyecto.csproj.CoreCompileInputs.cache
+A:\PROGRAMACION\LENGUAJES\2do Semestre\Practica1\Proyecto\Proyecto\obj\Debug\Proyecto.exe
+A:\PROGRAMACION\LENGUAJES\2do Semestre\Practica1\Proyecto\Proyecto\obj\Debug\Proyecto.pdb
