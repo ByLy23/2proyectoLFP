@@ -21,6 +21,9 @@ namespace Proyecto
         public int fila = 1;
         char c;
         private TreeNode nuevo;
+        private TreeNode anio;
+        private TreeNode mes;
+        private TreeNode dia;
         public static LinkedList<Error> erros = new LinkedList<Error>();
         public static LinkedList<Token> toks = new LinkedList<Token>();
         Boolean compruebaErrores = false;
@@ -407,18 +410,99 @@ namespace Proyecto
         private String planificador;
         private String comparacion_planificador;
         private String anios;
-        private String esperanza="";
         private String com_anio;
-        private String mes;
+        private String meses;
         private String com_mes;
-        private String dia;
+        private String dias;
         private String com_dia;
         private void mostrarNodo()
         {
-            foreach (var item in toks)
+
+            for (int i = 0; i < toks.Count(); i++)
             {
-               
+                if (toks.ElementAt(i).IdToken1.Equals(5))
+                {
+                    if (toks.ElementAt(i-2).IdToken1.Equals(7))
+                    {
+                        nuevo = new TreeNode(toks.ElementAt(i).Lexema1);
+                        arbolito.Nodes.Add(nuevo);
+                        planificador = toks.ElementAt(i).Lexema1;
+                    }
+                }
+                if (toks.ElementAt(i).IdToken1.Equals(5) && toks.ElementAt(i-2).IdToken1.Equals(7))
+                {
+                    comparacion_planificador = toks.ElementAt(i).Lexema1;
+                }
+                if (toks.ElementAt(i).IdToken1.Equals(6) && toks.ElementAt(i-2).IdToken1.Equals(8) && comparacion_planificador.Equals(planificador))
+                {
+                    com_anio = toks.ElementAt(i).Lexema1;
+                }
+                if (toks.ElementAt(i).IdToken1.Equals(6) && toks.ElementAt(i - 2).IdToken1.Equals(9) && comparacion_planificador.Equals(planificador) && com_anio.Equals(anios))
+                {
+                    com_mes = toks.ElementAt(i).Lexema1;
+                }
+                if (toks.ElementAt(i).IdToken1.Equals(6))
+                {
+                    if (toks.ElementAt(i-2).IdToken1.Equals(8))
+                    {
+                        if (comparacion_planificador.Equals(planificador))
+                        {
+                             anio = new TreeNode(toks.ElementAt(i).Lexema1);
+                            nuevo.Nodes.Add(anio);
+                            anios = toks.ElementAt(i).Lexema1;
+                        }
+                    }
+                    else if (toks.ElementAt(i-2).IdToken1.Equals(9))
+                    {
+                        if (comparacion_planificador.Equals(planificador))
+                        {
+                            if (com_anio.Equals(anios))
+                            {
+                                 mes = new TreeNode(toks.ElementAt(i).Lexema1);
+                                anio.Nodes.Add(mes);
+                                meses = toks.ElementAt(i).Lexema1;
+                            }
+                        }
+                    }
+                    else if (toks.ElementAt(i-2).IdToken1.Equals(10))
+                    {
+                        if (comparacion_planificador.Equals(planificador))
+                        {
+                            if (com_anio.Equals(anios))
+                            {
+                                if (com_mes.Equals(meses))
+                                {
+                                    dia = new TreeNode(toks.ElementAt(i).Lexema1);
+                                    mes.Nodes.Add(dia);
+                                }
+                            }
+                        }
+                    }
+                }
             }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
            /* for (int i = 0; i < toks.Count(); i++)
             {
                 if (toks.ElementAt(i).IdToken1.Equals(5) && toks.ElementAt(i-2).IdToken1.Equals(7))
@@ -550,6 +634,10 @@ namespace Proyecto
             File.WriteAllText("Tokens.html", pagina);
             System.Diagnostics.Process.Start("Tokens.html");
             
+        }
+        private void buscar()
+        {
+
         }
         private void VerErrores()
         {
