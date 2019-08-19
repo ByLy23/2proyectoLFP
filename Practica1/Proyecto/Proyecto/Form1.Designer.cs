@@ -85,8 +85,8 @@
             // guardarComoToolStripMenuItem
             // 
             this.guardarComoToolStripMenuItem.Name = "guardarComoToolStripMenuItem";
-            this.guardarComoToolStripMenuItem.Size = new System.Drawing.Size(100, 20);
-            this.guardarComoToolStripMenuItem.Text = "Nueva Pestania";
+            this.guardarComoToolStripMenuItem.Size = new System.Drawing.Size(147, 20);
+            this.guardarComoToolStripMenuItem.Text = "Abrir Manual de Usuario";
             this.guardarComoToolStripMenuItem.Click += new System.EventHandler(this.GuardarComoToolStripMenuItem_Click);
             // 
             // analizarToolStripMenuItem
@@ -121,6 +121,8 @@
             // 
             // descripcionxd
             // 
+            this.descripcionxd.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.descripcionxd.Font = new System.Drawing.Font("Comic Sans MS", 14.25F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.descripcionxd.Location = new System.Drawing.Point(801, 27);
             this.descripcionxd.Name = "descripcionxd";
             this.descripcionxd.Size = new System.Drawing.Size(315, 158);

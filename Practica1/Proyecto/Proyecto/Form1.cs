@@ -105,14 +105,7 @@ namespace Proyecto
 
         private void GuardarComoToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            foreach (var item in toks)
-            {
-                Console.WriteLine(item.NombreToken + " FILA: " + item.Fila + " COLUMNA: " + item.Columna + " TOKEN: " + item.Lexema1);
-            }
-            foreach (var item in erros)
-            {
-                Console.WriteLine(item.NombreError1 + " " + item.Simbolo1 + " FILA: " + item.Fila + " COLUMNA: " + item.Columna);
-            }
+            System.Diagnostics.Process.Start("A:/PROGRAMACION/LENGUAJES/2do Semestre/Practica1/Proyecto/Proyecto/ManualUsuario.pdf");
         }
 
         private void AcercaDeToolStripMenuItem_Click(object sender, EventArgs e)
@@ -134,16 +127,17 @@ namespace Proyecto
             erros.Clear();
             arbolito.Nodes.Clear();
             analizarTexto(lienzo.Text);
-            // pintarTexto();
+             pintarTexto();
 
             if (compruebaErrores)
             {
-             //   VerErrores();
+                VerErrores();
             }
+
             else
             {
                 mostrarNodo();
-             //   VerTokens();
+                VerTokens();
             }
 
         }
@@ -624,7 +618,7 @@ namespace Proyecto
                         }
                         catch(Exception ex)
                         {
-                            MessageBox.Show("No es posible encontrar el archivo, se reiniciara su compu okno xD");
+                            MessageBox.Show("No es posible encontrar el archivo, se reiniciara su compu okno xD Error: "+ex);
                         }
                        // descripcionxd.Text = toks.ElementAt(i).Lexema1;
                         break;
