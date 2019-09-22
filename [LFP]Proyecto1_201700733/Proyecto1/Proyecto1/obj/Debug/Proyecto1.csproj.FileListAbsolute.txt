@@ -1,0 +1,13 @@
+A:\PROGRAMACION\LENGUAJES\2do Semestre\[LFP]Proyecto1_201700733\Proyecto1\Proyecto1\bin\Debug\Proyecto1.exe.config
+A:\PROGRAMACION\LENGUAJES\2do Semestre\[LFP]Proyecto1_201700733\Proyecto1\Proyecto1\bin\Debug\Proyecto1.exe
+A:\PROGRAMACION\LENGUAJES\2do Semestre\[LFP]Proyecto1_201700733\Proyecto1\Proyecto1\bin\Debug\Proyecto1.pdb
+A:\PROGRAMACION\LENGUAJES\2do Semestre\[LFP]Proyecto1_201700733\Proyecto1\Proyecto1\obj\Debug\Proyecto1.csprojAssemblyReference.cache
+A:\PROGRAMACION\LENGUAJES\2do Semestre\[LFP]Proyecto1_201700733\Proyecto1\Proyecto1\obj\Debug\Proyecto1.Form1.resources
+A:\PROGRAMACION\LENGUAJES\2do Semestre\[LFP]Proyecto1_201700733\Proyecto1\Proyecto1\obj\Debug\Proyecto1.Properties.Resources.resources
+A:\PROGRAMACION\LENGUAJES\2do Semestre\[LFP]Proyecto1_201700733\Proyecto1\Proyecto1\obj\Debug\Proyecto1.csproj.GenerateResource.cache
+A:\PROGRAMACION\LENGUAJES\2do Semestre\[LFP]Proyecto1_201700733\Proyecto1\Proyecto1\obj\Debug\Proyecto1.csproj.CoreCompileInputs.cache
+A:\PROGRAMACION\LENGUAJES\2do Semestre\[LFP]Proyecto1_201700733\Proyecto1\Proyecto1\obj\Debug\Proyecto1.exe
+A:\PROGRAMACION\LENGUAJES\2do Semestre\[LFP]Proyecto1_201700733\Proyecto1\Proyecto1\obj\Debug\Proyecto1.pdb
+A:\PROGRAMACION\LENGUAJES\2do Semestre\[LFP]Proyecto1_201700733\Proyecto1\Proyecto1\bin\Debug\itextsharp.dll
+A:\PROGRAMACION\LENGUAJES\2do Semestre\[LFP]Proyecto1_201700733\Proyecto1\Proyecto1\bin\Debug\itextsharp.xml
+A:\PROGRAMACION\LENGUAJES\2do Semestre\[LFP]Proyecto1_201700733\Proyecto1\Proyecto1\obj\Debug\Proyecto1.csproj.CopyComplete

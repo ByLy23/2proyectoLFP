@@ -1,4 +1,4 @@
-﻿namespace Proyecto
+﻿namespace Proyecto1
 {
     partial class Form1
     {
@@ -28,31 +28,24 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.lienzo = new System.Windows.Forms.RichTextBox();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.wdjfoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.guardarToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.guardarComoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.analizarToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.acercaDeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.limpiarToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.salirToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.cajitaDibujos = new System.Windows.Forms.PictureBox();
-            this.descripcionxd = new System.Windows.Forms.Label();
-            this.arbolito = new System.Windows.Forms.TreeView();
-            this.timepo = new System.Windows.Forms.DateTimePicker();
-            this.monthCalendar1 = new System.Windows.Forms.MonthCalendar();
+            this.lienz0 = new System.Windows.Forms.RichTextBox();
+            this.pinturillo = new System.Windows.Forms.PictureBox();
+            this.seleccion = new System.Windows.Forms.PictureBox();
+            this.paissele = new System.Windows.Forms.Label();
+            this.generarPDFToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.poblaciones = new System.Windows.Forms.Label();
             this.menuStrip1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.cajitaDibujos)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pinturillo)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.seleccion)).BeginInit();
             this.SuspendLayout();
-            // 
-            // lienzo
-            // 
-            this.lienzo.AcceptsTab = true;
-            this.lienzo.Location = new System.Drawing.Point(12, 27);
-            this.lienzo.Name = "lienzo";
-            this.lienzo.Size = new System.Drawing.Size(372, 411);
-            this.lienzo.TabIndex = 4;
-            this.lienzo.Text = "";
             // 
             // menuStrip1
             // 
@@ -60,13 +53,15 @@
             this.wdjfoToolStripMenuItem,
             this.guardarToolStripMenuItem,
             this.guardarComoToolStripMenuItem,
-            this.analizarToolStripMenuItem,
+            this.generarPDFToolStripMenuItem,
             this.acercaDeToolStripMenuItem,
+            this.analizarToolStripMenuItem,
+            this.limpiarToolStripMenuItem,
             this.salirToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(1128, 24);
-            this.menuStrip1.TabIndex = 3;
+            this.menuStrip1.Size = new System.Drawing.Size(1017, 24);
+            this.menuStrip1.TabIndex = 5;
             this.menuStrip1.Text = "menuStrip1";
             // 
             // wdjfoToolStripMenuItem
@@ -104,6 +99,13 @@
             this.acercaDeToolStripMenuItem.Text = "Acerca de";
             this.acercaDeToolStripMenuItem.Click += new System.EventHandler(this.AcercaDeToolStripMenuItem_Click);
             // 
+            // limpiarToolStripMenuItem
+            // 
+            this.limpiarToolStripMenuItem.Name = "limpiarToolStripMenuItem";
+            this.limpiarToolStripMenuItem.Size = new System.Drawing.Size(59, 20);
+            this.limpiarToolStripMenuItem.Text = "Limpiar";
+            this.limpiarToolStripMenuItem.Click += new System.EventHandler(this.LimpiarToolStripMenuItem_Click);
+            // 
             // salirToolStripMenuItem
             // 
             this.salirToolStripMenuItem.Name = "salirToolStripMenuItem";
@@ -111,74 +113,83 @@
             this.salirToolStripMenuItem.Text = "Salir";
             this.salirToolStripMenuItem.Click += new System.EventHandler(this.SalirToolStripMenuItem_Click);
             // 
-            // cajitaDibujos
+            // lienz0
             // 
-            this.cajitaDibujos.Location = new System.Drawing.Point(801, 198);
-            this.cajitaDibujos.Name = "cajitaDibujos";
-            this.cajitaDibujos.Size = new System.Drawing.Size(315, 240);
-            this.cajitaDibujos.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.cajitaDibujos.TabIndex = 1;
-            this.cajitaDibujos.TabStop = false;
+            this.lienz0.Location = new System.Drawing.Point(12, 27);
+            this.lienz0.Name = "lienz0";
+            this.lienz0.Size = new System.Drawing.Size(413, 614);
+            this.lienz0.TabIndex = 7;
+            this.lienz0.Text = "";
             // 
-            // descripcionxd
+            // pinturillo
             // 
-            this.descripcionxd.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            this.descripcionxd.Font = new System.Drawing.Font("Comic Sans MS", 14.25F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.descripcionxd.Location = new System.Drawing.Point(801, 27);
-            this.descripcionxd.Name = "descripcionxd";
-            this.descripcionxd.Size = new System.Drawing.Size(315, 158);
-            this.descripcionxd.TabIndex = 0;
+            this.pinturillo.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.pinturillo.Location = new System.Drawing.Point(431, 27);
+            this.pinturillo.Name = "pinturillo";
+            this.pinturillo.Size = new System.Drawing.Size(574, 341);
+            this.pinturillo.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pinturillo.TabIndex = 8;
+            this.pinturillo.TabStop = false;
             // 
-            // arbolito
+            // seleccion
             // 
-            this.arbolito.Location = new System.Drawing.Point(390, 198);
-            this.arbolito.Name = "arbolito";
-            this.arbolito.Size = new System.Drawing.Size(405, 240);
-            this.arbolito.TabIndex = 7;
-            this.arbolito.AfterSelect += new System.Windows.Forms.TreeViewEventHandler(this.TreeView1_AfterSelect);
-            this.arbolito.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.Arbolito_MouseDoubleClick);
+            this.seleccion.BackColor = System.Drawing.SystemColors.AppWorkspace;
+            this.seleccion.Location = new System.Drawing.Point(628, 386);
+            this.seleccion.Name = "seleccion";
+            this.seleccion.Size = new System.Drawing.Size(377, 255);
+            this.seleccion.TabIndex = 9;
+            this.seleccion.TabStop = false;
             // 
-            // timepo
+            // paissele
             // 
-            this.timepo.CustomFormat = "dd/mm/yyyy";
-            this.timepo.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.timepo.Location = new System.Drawing.Point(513, 27);
-            this.timepo.Name = "timepo";
-            this.timepo.Size = new System.Drawing.Size(155, 20);
-            this.timepo.TabIndex = 6;
-            this.timepo.ValueChanged += new System.EventHandler(this.Timepo_ValueChanged);
+            this.paissele.AutoSize = true;
+            this.paissele.Location = new System.Drawing.Point(431, 386);
+            this.paissele.Name = "paissele";
+            this.paissele.Size = new System.Drawing.Size(98, 13);
+            this.paissele.TabIndex = 10;
+            this.paissele.Text = "Pais Seleccionado:";
+            this.paissele.Click += new System.EventHandler(this.Label1_Click);
             // 
-            // monthCalendar1
+            // generarPDFToolStripMenuItem
             // 
-            this.monthCalendar1.Location = new System.Drawing.Point(476, 27);
-            this.monthCalendar1.Name = "monthCalendar1";
-            this.monthCalendar1.TabIndex = 8;
+            this.generarPDFToolStripMenuItem.Name = "generarPDFToolStripMenuItem";
+            this.generarPDFToolStripMenuItem.Size = new System.Drawing.Size(84, 20);
+            this.generarPDFToolStripMenuItem.Text = "Generar PDF";
+            this.generarPDFToolStripMenuItem.Click += new System.EventHandler(this.GenerarPDFToolStripMenuItem_Click);
+            // 
+            // poblaciones
+            // 
+            this.poblaciones.AutoSize = true;
+            this.poblaciones.Location = new System.Drawing.Point(431, 479);
+            this.poblaciones.Name = "poblaciones";
+            this.poblaciones.Size = new System.Drawing.Size(57, 13);
+            this.poblaciones.TabIndex = 11;
+            this.poblaciones.Text = "Poblacion:";
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1128, 450);
-            this.Controls.Add(this.monthCalendar1);
-            this.Controls.Add(this.timepo);
-            this.Controls.Add(this.cajitaDibujos);
-            this.Controls.Add(this.arbolito);
-            this.Controls.Add(this.descripcionxd);
-            this.Controls.Add(this.lienzo);
+            this.ClientSize = new System.Drawing.Size(1017, 653);
+            this.Controls.Add(this.poblaciones);
+            this.Controls.Add(this.paissele);
+            this.Controls.Add(this.seleccion);
+            this.Controls.Add(this.pinturillo);
+            this.Controls.Add(this.lienz0);
             this.Controls.Add(this.menuStrip1);
             this.Name = "Form1";
             this.Text = "Form1";
+            this.Load += new System.EventHandler(this.Form1_Load);
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.cajitaDibujos)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pinturillo)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.seleccion)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
         }
 
         #endregion
-
-        private System.Windows.Forms.RichTextBox lienzo;
         private System.Windows.Forms.MenuStrip menuStrip1;
         private System.Windows.Forms.ToolStripMenuItem wdjfoToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem guardarToolStripMenuItem;
@@ -186,11 +197,13 @@
         private System.Windows.Forms.ToolStripMenuItem analizarToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem acercaDeToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem salirToolStripMenuItem;
-        private System.Windows.Forms.TreeView arbolito;
-        private System.Windows.Forms.DateTimePicker timepo;
-        private System.Windows.Forms.PictureBox cajitaDibujos;
-        private System.Windows.Forms.Label descripcionxd;
-        private System.Windows.Forms.MonthCalendar monthCalendar1;
+        private System.Windows.Forms.RichTextBox lienz0;
+        private System.Windows.Forms.PictureBox pinturillo;
+        private System.Windows.Forms.ToolStripMenuItem limpiarToolStripMenuItem;
+        private System.Windows.Forms.PictureBox seleccion;
+        private System.Windows.Forms.Label paissele;
+        private System.Windows.Forms.ToolStripMenuItem generarPDFToolStripMenuItem;
+        private System.Windows.Forms.Label poblaciones;
     }
 }
 

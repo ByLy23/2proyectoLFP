@@ -125,6 +125,7 @@ namespace Proyecto
             columna = 0;
             toks.Clear();
             erros.Clear();
+            compruebaErrores = false;
             arbolito.Nodes.Clear();
             analizarTexto(lienzo.Text);
              pintarTexto();
@@ -180,6 +181,7 @@ namespace Proyecto
                             estado = 0;
                             lexema = lexema + c;
                             agregarToken(lexema, "Llave Cerrada", 2, fila, columna);
+                 
                             lexema = "";
                         }
                         else if (c == ';')
@@ -480,6 +482,8 @@ namespace Proyecto
                                     dia = new TreeNode(toks.ElementAt(i).Lexema1);
                                     mes.Nodes.Add(dia);
                                     dias = toks.ElementAt(i).Lexema1;
+                                    string fecha = dias + "/" + meses + "/" + anios;
+                                    monthCalendar1.AddBoldedDate(DateTime.Parse(fecha));
                                     //DateTime tiem = new DateTime(Int32.Parse(anios), Int32.Parse(meses), Int32.Parse(dias));
                                    // Console.WriteLine(tiem);
                                     //timepo.Value = tiem;
@@ -494,14 +498,16 @@ namespace Proyecto
         {
             String pagina;
             pagina = "<html>" +
-            "<body bgcolor= #B4FFE1>" +
+            "<body bgcolor= #559FD7>" +
             "<h1 align='center'><U>TABLA DE TOKENS</U></h1></br>" +
-            "<table cellpadding='20' border = '1' align='center'>" +
+            "<table cellpadding='10' border = '2' align='center'>" +
             "<tr>" +
-            "<td bgcolor= #808000><strong>#" + "</strong></td>" +
-            "<td bgcolor= #808000><strong>Lexema" + "</strong></td>" +
-            "<td bgcolor= #808000><strong>idToken" + "</strong></td>" +
-            "<td bgcolor= #808000><strong>Token" + "</strong></td>" +
+            "<td bgcolor= #567EB9><strong>#" + "</strong></td>" +
+            "<td bgcolor= #2B64B8><strong>Lexema" + "</strong></td>" +
+            "<td bgcolor= #4376C4><strong>idToken" + "</strong></td>" +
+            "<td bgcolor= #5592EE><strong>Token" + "</strong></td>" +
+            "<td bgcolor= #5592EE><strong>Fila" + "</strong></td>" +
+            "<td bgcolor= #5592EE><strong>Columna" + "</strong></td>" +
             "</tr>";
             String cadena = "";
             String t;
@@ -516,6 +522,10 @@ namespace Proyecto
                 "<td>" + toks.ElementAt(i).IdToken1 +
                 "</td>" +
                 "<td>" + toks.ElementAt(i).NombreToken +
+                "</td>" +
+                "<td>" + toks.ElementAt(i).Fila +
+                "</td>" +
+                "<td>" + toks.ElementAt(i).Columna +
                 "</td>" +
                 "</tr>";
                 cadena = cadena + t;
@@ -536,15 +546,15 @@ namespace Proyecto
         {
             String pagina;
             pagina = "<html>" +
-            "<body bgcolor= #B4FFE1>" +
+            "<body bgcolor= #559FD7>" +
             "<h1 align='center'><U>TABLA DE ERRORES</U></h1></br>" +
-            "<table cellpadding='20' border = '1' align='center'>" +
+            "<table cellpadding='10' border = '2' align='center'>" +
             "<tr>" +
-            "<td bgcolor= #808000><strong>#" + "</strong></td>" +
-            "<td bgcolor= #808000><strong>Fila" + "</strong></td>" +
-            "<td bgcolor= #808000><strong>Columna" + "</strong></td>" +
-            "<td bgcolor= #808000><strong>Caracter" + "</strong></td>" +
-            "<td bgcolor= #808000><strong>Descripcion" + "</strong></td>" +
+            "<td bgcolor= #567EB9><strong>#" + "</strong></td>" +
+            "<td bgcolor= #567EB9><strong>Fila" + "</strong></td>" +
+            "<td bgcolor= #567EB9><strong>Columna" + "</strong></td>" +
+            "<td bgcolor= #567EB9><strong>Caracter" + "</strong></td>" +
+            "<td bgcolor= #567EB9><strong>Descripcion" + "</strong></td>" +
             "</tr>";
             String cadena = "";
             String t;
@@ -639,7 +649,8 @@ namespace Proyecto
                         if (com.Equals(com_dia))
                         {
                         DateTime tiem = new DateTime(Int32.Parse(anios),Int32.Parse(meses), Int32.Parse(com_dia));
-                        timepo.Value = tiem;
+                            //  timepo.Value = tiem;
+                          //  monthCalendar1.TrailingForeColor = Color.Red;
                         }
                        
                     }
