@@ -32,16 +32,18 @@
             this.wdjfoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.guardarToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.guardarComoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.analizarToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.generarPDFToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.acercaDeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.limpiarToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.analizarToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.salirToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.lienz0 = new System.Windows.Forms.RichTextBox();
             this.pinturillo = new System.Windows.Forms.PictureBox();
             this.seleccion = new System.Windows.Forms.PictureBox();
             this.paissele = new System.Windows.Forms.Label();
-            this.generarPDFToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.poblaciones = new System.Windows.Forms.Label();
+            this.button1 = new System.Windows.Forms.Button();
+            this.button2 = new System.Windows.Forms.Button();
+            this.limpiarToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pinturillo)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.seleccion)).BeginInit();
@@ -56,11 +58,11 @@
             this.generarPDFToolStripMenuItem,
             this.acercaDeToolStripMenuItem,
             this.analizarToolStripMenuItem,
-            this.limpiarToolStripMenuItem,
-            this.salirToolStripMenuItem});
+            this.salirToolStripMenuItem,
+            this.limpiarToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(1017, 24);
+            this.menuStrip1.Size = new System.Drawing.Size(1253, 24);
             this.menuStrip1.TabIndex = 5;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -85,12 +87,12 @@
             this.guardarComoToolStripMenuItem.Text = "Abrir Manual de Usuario";
             this.guardarComoToolStripMenuItem.Click += new System.EventHandler(this.GuardarComoToolStripMenuItem_Click);
             // 
-            // analizarToolStripMenuItem
+            // generarPDFToolStripMenuItem
             // 
-            this.analizarToolStripMenuItem.Name = "analizarToolStripMenuItem";
-            this.analizarToolStripMenuItem.Size = new System.Drawing.Size(61, 20);
-            this.analizarToolStripMenuItem.Text = "Analizar";
-            this.analizarToolStripMenuItem.Click += new System.EventHandler(this.AnalizarToolStripMenuItem_Click);
+            this.generarPDFToolStripMenuItem.Name = "generarPDFToolStripMenuItem";
+            this.generarPDFToolStripMenuItem.Size = new System.Drawing.Size(84, 20);
+            this.generarPDFToolStripMenuItem.Text = "Generar PDF";
+            this.generarPDFToolStripMenuItem.Click += new System.EventHandler(this.GenerarPDFToolStripMenuItem_Click);
             // 
             // acercaDeToolStripMenuItem
             // 
@@ -99,12 +101,12 @@
             this.acercaDeToolStripMenuItem.Text = "Acerca de";
             this.acercaDeToolStripMenuItem.Click += new System.EventHandler(this.AcercaDeToolStripMenuItem_Click);
             // 
-            // limpiarToolStripMenuItem
+            // analizarToolStripMenuItem
             // 
-            this.limpiarToolStripMenuItem.Name = "limpiarToolStripMenuItem";
-            this.limpiarToolStripMenuItem.Size = new System.Drawing.Size(59, 20);
-            this.limpiarToolStripMenuItem.Text = "Limpiar";
-            this.limpiarToolStripMenuItem.Click += new System.EventHandler(this.LimpiarToolStripMenuItem_Click);
+            this.analizarToolStripMenuItem.Name = "analizarToolStripMenuItem";
+            this.analizarToolStripMenuItem.Size = new System.Drawing.Size(61, 20);
+            this.analizarToolStripMenuItem.Text = "Analizar";
+            this.analizarToolStripMenuItem.Click += new System.EventHandler(this.AnalizarToolStripMenuItem_Click);
             // 
             // salirToolStripMenuItem
             // 
@@ -126,7 +128,7 @@
             this.pinturillo.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.pinturillo.Location = new System.Drawing.Point(431, 27);
             this.pinturillo.Name = "pinturillo";
-            this.pinturillo.Size = new System.Drawing.Size(574, 341);
+            this.pinturillo.Size = new System.Drawing.Size(810, 341);
             this.pinturillo.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pinturillo.TabIndex = 8;
             this.pinturillo.TabStop = false;
@@ -134,9 +136,10 @@
             // seleccion
             // 
             this.seleccion.BackColor = System.Drawing.SystemColors.AppWorkspace;
-            this.seleccion.Location = new System.Drawing.Point(628, 386);
+            this.seleccion.Location = new System.Drawing.Point(864, 386);
             this.seleccion.Name = "seleccion";
             this.seleccion.Size = new System.Drawing.Size(377, 255);
+            this.seleccion.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.seleccion.TabIndex = 9;
             this.seleccion.TabStop = false;
             // 
@@ -150,13 +153,6 @@
             this.paissele.Text = "Pais Seleccionado:";
             this.paissele.Click += new System.EventHandler(this.Label1_Click);
             // 
-            // generarPDFToolStripMenuItem
-            // 
-            this.generarPDFToolStripMenuItem.Name = "generarPDFToolStripMenuItem";
-            this.generarPDFToolStripMenuItem.Size = new System.Drawing.Size(84, 20);
-            this.generarPDFToolStripMenuItem.Text = "Generar PDF";
-            this.generarPDFToolStripMenuItem.Click += new System.EventHandler(this.GenerarPDFToolStripMenuItem_Click);
-            // 
             // poblaciones
             // 
             this.poblaciones.AutoSize = true;
@@ -166,11 +162,42 @@
             this.poblaciones.TabIndex = 11;
             this.poblaciones.Text = "Poblacion:";
             // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(701, 166);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(245, 55);
+            this.button1.TabIndex = 12;
+            this.button1.Text = "Esta imagen podria mostrar contenido sensible o no apto para todos";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Visible = false;
+            this.button1.Click += new System.EventHandler(this.Button1_Click);
+            // 
+            // button2
+            // 
+            this.button2.Location = new System.Drawing.Point(431, 336);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(125, 32);
+            this.button2.TabIndex = 13;
+            this.button2.Text = "Cubrir esta Imagen";
+            this.button2.UseVisualStyleBackColor = true;
+            this.button2.Visible = false;
+            this.button2.Click += new System.EventHandler(this.Button2_Click);
+            // 
+            // limpiarToolStripMenuItem
+            // 
+            this.limpiarToolStripMenuItem.Name = "limpiarToolStripMenuItem";
+            this.limpiarToolStripMenuItem.Size = new System.Drawing.Size(56, 20);
+            this.limpiarToolStripMenuItem.Text = "limpiar";
+            this.limpiarToolStripMenuItem.Click += new System.EventHandler(this.LimpiarToolStripMenuItem_Click_1);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1017, 653);
+            this.ClientSize = new System.Drawing.Size(1253, 653);
+            this.Controls.Add(this.button2);
+            this.Controls.Add(this.button1);
             this.Controls.Add(this.poblaciones);
             this.Controls.Add(this.paissele);
             this.Controls.Add(this.seleccion);
@@ -199,11 +226,13 @@
         private System.Windows.Forms.ToolStripMenuItem salirToolStripMenuItem;
         private System.Windows.Forms.RichTextBox lienz0;
         private System.Windows.Forms.PictureBox pinturillo;
-        private System.Windows.Forms.ToolStripMenuItem limpiarToolStripMenuItem;
         private System.Windows.Forms.PictureBox seleccion;
         private System.Windows.Forms.Label paissele;
         private System.Windows.Forms.ToolStripMenuItem generarPDFToolStripMenuItem;
         private System.Windows.Forms.Label poblaciones;
+        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.ToolStripMenuItem limpiarToolStripMenuItem;
     }
 }
 
