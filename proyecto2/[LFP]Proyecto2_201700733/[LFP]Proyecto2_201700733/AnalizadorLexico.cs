@@ -13,6 +13,12 @@ namespace _LFP_Proyecto2_201700733
         int fila=1;
         int estado;
         char c;
+        public void analizar()
+        {
+            for (int i = 0; i < listaTokens.Count(); i++)
+            {
 
+            }
+        }
     }
 }
