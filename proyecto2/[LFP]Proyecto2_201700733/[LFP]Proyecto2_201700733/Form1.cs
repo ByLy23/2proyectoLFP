@@ -13,6 +13,7 @@ namespace _LFP_Proyecto2_201700733
     public partial class Form1 : Form
     {
         private String testoguardado = "";
+        LinkedList<Token> ltokens;
         public Form1()
         {
             InitializeComponent();
@@ -62,7 +63,9 @@ namespace _LFP_Proyecto2_201700733
 
         private void GenerarTraduccionToolStripMenuItem_Click(object sender, EventArgs e)
         {
-    
+            AnalizadorLexico lex = new AnalizadorLexico();
+            ltokens = lex.escanear(cajita.Text);
+            lex.imprimir(ltokens);
         }
 
         private void SalirToolStripMenuItem_Click(object sender, EventArgs e)

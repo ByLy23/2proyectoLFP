@@ -46,6 +46,7 @@ namespace _LFP_Proyecto2_201700733
             COM_BLOQUE_FIN,
             ESCRITURA,
             CONSOLA,
+            DOS_PUNTOS,
             DIBUJA_VECTOR,
             LLAVE_ABIERTA,
             LLAVE_CERRADA,
@@ -72,9 +73,11 @@ namespace _LFP_Proyecto2_201700733
         {
             nombre = "";
         }
-        public Token(Token.Tipo toks, String nombre)
+        public Token(Token.Tipo toks, String nombre,int fila, int columna)
         {
             this.tipo = toks;
+            this.fila = fila;
+            this.columna = columna;
             this.nombre = nombre;
         }
         public string getNombre()
