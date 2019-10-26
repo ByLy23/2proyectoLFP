@@ -14,6 +14,7 @@ namespace _LFP_Proyecto2_201700733
     {
         private String testoguardado = "";
         LinkedList<Token> ltokens;
+        LinkedList<Error> lerror;
         public Form1()
         {
             InitializeComponent();
@@ -65,7 +66,10 @@ namespace _LFP_Proyecto2_201700733
         {
             AnalizadorLexico lex = new AnalizadorLexico();
             ltokens = lex.escanear(cajita.Text);
+            lerror = lex.lerr();
             lex.imprimir(ltokens);
+            lex.imprimirErrores(lerror);
+            
         }
 
         private void SalirToolStripMenuItem_Click(object sender, EventArgs e)
