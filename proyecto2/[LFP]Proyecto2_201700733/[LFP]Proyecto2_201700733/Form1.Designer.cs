@@ -126,21 +126,21 @@
             // guararComoToolStripMenuItem
             // 
             this.guararComoToolStripMenuItem.Name = "guararComoToolStripMenuItem";
-            this.guararComoToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.guararComoToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.guararComoToolStripMenuItem.Text = "Abrir";
             this.guararComoToolStripMenuItem.Click += new System.EventHandler(this.GuararComoToolStripMenuItem_Click);
             // 
             // salirToolStripMenuItem
             // 
             this.salirToolStripMenuItem.Name = "salirToolStripMenuItem";
-            this.salirToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.salirToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.salirToolStripMenuItem.Text = "Guardar Como";
             this.salirToolStripMenuItem.Click += new System.EventHandler(this.SalirToolStripMenuItem_Click);
             // 
             // salirToolStripMenuItem1
             // 
             this.salirToolStripMenuItem1.Name = "salirToolStripMenuItem1";
-            this.salirToolStripMenuItem1.Size = new System.Drawing.Size(180, 22);
+            this.salirToolStripMenuItem1.Size = new System.Drawing.Size(152, 22);
             this.salirToolStripMenuItem1.Text = "Salir";
             // 
             // documentoToolStripMenuItem
@@ -295,6 +295,7 @@
             this.Controls.Add(this.menuStrip1);
             this.Name = "Form1";
             this.Text = "Form1";
+            this.Load += new System.EventHandler(this.Form1_Load);
             this.contextMenuStrip1.ResumeLayout(false);
             this.contextMenuStrip2.ResumeLayout(false);
             this.menuStrip1.ResumeLayout(false);

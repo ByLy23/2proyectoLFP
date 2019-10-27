@@ -464,12 +464,6 @@ namespace _LFP_Proyecto2_201700733
                 case "while":
                     agregaToken(Token.Tipo.RES_WHILE, lexema, fila, columna);
                     break;
-                case "args":
-                    agregaToken(Token.Tipo.RES_ARREGLO, lexema, fila, columna);
-                    break;
-                case "Main":
-                    agregaToken(Token.Tipo.RES_MENU, lexema, fila, columna);
-                    break;
                 case "WriteLine":
                     agregaToken(Token.Tipo.ESCRITURA, lexema, fila, columna);
                     break;

@@ -76,5 +76,10 @@ namespace _LFP_Proyecto2_201700733
         {
 
         }
+
+        private void Form1_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }
