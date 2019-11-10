@@ -190,9 +190,7 @@ namespace _LFP_Proyecto2_201700733
                     case 2:
                         if (c=='/')
                         {
-                            cambiar(c, 0);
-                            agregaToken(Token.Tipo.COMENTARIO_SIMPLE, lexema, fila, columna);
-                            limpiar();
+                            cambiar(c, 14);
                         }
                         else if (c == '*')
                         {
@@ -390,6 +388,19 @@ namespace _LFP_Proyecto2_201700733
                             i -= 1;
                         }
                         break;
+                    case 14:
+                        if (c=='\n')
+                        {
+                            estado = 0;
+                            agregaToken(Token.Tipo.COMENTARIO_SIMPLE, lexema, fila, columna);
+                            limpiar();
+                        }
+                        else
+                        {
+                            cambiar(c, 14);
+                        }
+                        break;
+
                 }
                 columna++;
             }
