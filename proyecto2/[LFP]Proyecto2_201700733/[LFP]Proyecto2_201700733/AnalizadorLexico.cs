@@ -337,23 +337,23 @@ namespace _LFP_Proyecto2_201700733
                         }
                         else if (c == '\n')
                         {
-                            cambiar(c, 11);
+                            cambiar(c, 10);
                             fila++;
                             columna = 1;
                         }
                         else if (c == '\r' || c == '\t' || c == '\f' || c == '\b' || c==' ')
                         {
-                            cambiar(c, 11);
+                            cambiar(c, 10);
                         }
                         else if (Char.IsLetterOrDigit(c) || Char.IsSymbol(c) || Char.IsSeparator(c) || Char.IsPunctuation(c))
                         {
-                            cambiar(c, 11);
+                            cambiar(c, 10);
                         }
                         break;
                     case 11:
                         if (c=='/')
                         {
-                            estado = 0;
+                            cambiar(c, 0);
                             agregaToken(Token.Tipo.COM_BLOQUE, lexema, fila, columna);
                             limpiar();
                         }
@@ -496,7 +496,7 @@ namespace _LFP_Proyecto2_201700733
                 case "WriteLine":
                     agregaToken(Token.Tipo.ESCRITURA, lexema, fila, columna);
                     break;
-                case "graficaVector":
+                case "graficarVector":
                     agregaToken(Token.Tipo.DIBUJA_VECTOR, lexema, fila, columna);
                     break;
                 case "default":

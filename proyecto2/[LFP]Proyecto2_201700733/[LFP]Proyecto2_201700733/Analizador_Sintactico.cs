@@ -278,6 +278,10 @@ namespace _LFP_Proyecto2_201700733
             {
                 emparejar(Token.Tipo.NUM_ENTERO);
             }
+            else if (controlToken.GetTipo()==Token.Tipo.IDENTIFICADOR)
+            {
+                emparejar(Token.Tipo.IDENTIFICADOR);
+            }
             else if (controlToken.GetTipo() == Token.Tipo.PARENTESIS_ABIERTO)
             {
                 emparejar(Token.Tipo.PARENTESIS_ABIERTO);
@@ -316,8 +320,17 @@ namespace _LFP_Proyecto2_201700733
         }
         private void muestraescritura()
         {
-            valor();
-            masidentificadores();
+            simbolos();
+            concatenacionsimbolos();
+        }
+        private void concatenacionsimbolos()
+        {
+            if (controlToken.GetTipo()==Token.Tipo.SIGNO_SUMA)
+            {
+                emparejar(Token.Tipo.SIGNO_SUMA);
+                simbolos();
+                concatenacionsimbolos();
+            }
         }
         private void masidentificadores()
         {
@@ -350,9 +363,9 @@ namespace _LFP_Proyecto2_201700733
                 emparejar(Token.Tipo.PARENTESIS_ABIERTO);
                 condicion();
                 emparejar(Token.Tipo.PARENTESIS_CERRADO);
-                emparejar(Token.Tipo.CORCHETE_ABIERTO);
+                emparejar(Token.Tipo.LLAVE_ABIERTA);
                 bloque();
-                emparejar(Token.Tipo.CORCHETE_CERRADO);
+                emparejar(Token.Tipo.LLAVE_CERRADA);
                 elses();
                 masoperaciones();
 
@@ -390,6 +403,14 @@ namespace _LFP_Proyecto2_201700733
             {
                 emparejar(Token.Tipo.SIGNO_MENOR);
             }
+            else if (controlToken.GetTipo()==Token.Tipo.SIGNO_MAYOR_IGUAL)
+            {
+                emparejar(Token.Tipo.SIGNO_MAYOR_IGUAL);
+            }
+            else if (controlToken.GetTipo()==Token.Tipo.SIGNO_MENOR_IGUAL)
+            {
+                emparejar(Token.Tipo.SIGNO_MENOR_IGUAL);
+            }
             else if (controlToken.GetTipo() == Token.Tipo.SIGNO_DIFERENTE_A)
             {
                 emparejar(Token.Tipo.SIGNO_DIFERENTE_A);
@@ -416,8 +437,9 @@ namespace _LFP_Proyecto2_201700733
         }
         private void elses()
         {
-            if (controlToken.GetTipo()==Token.Tipo.LLAVE_ABIERTA)
+            if (controlToken.GetTipo()==Token.Tipo.RES_ELSE)
             {
+                emparejar(Token.Tipo.RES_ELSE);
                 emparejar(Token.Tipo.LLAVE_ABIERTA);
                 bloque();
                 emparejar(Token.Tipo.LLAVE_CERRADA);
@@ -488,6 +510,7 @@ namespace _LFP_Proyecto2_201700733
         }
         private void asignacion()
         {
+            
             tipo();
             identificador();
             emparejar(Token.Tipo.SIGNO_IGUAL);

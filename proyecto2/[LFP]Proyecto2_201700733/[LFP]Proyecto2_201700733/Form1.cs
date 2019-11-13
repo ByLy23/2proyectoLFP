@@ -72,7 +72,7 @@ namespace _LFP_Proyecto2_201700733
             lex.imprimir(ltokens);
             lex.imprimirErrores(lerror);
             parser.parsear(ltokens);
-            Console.WriteLine("Fi");
+            Console.WriteLine("Fin xd");
         }
 
         private void SalirToolStripMenuItem_Click(object sender, EventArgs e)
