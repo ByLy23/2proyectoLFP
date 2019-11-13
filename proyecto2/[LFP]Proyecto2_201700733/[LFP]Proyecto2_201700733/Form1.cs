@@ -65,11 +65,14 @@ namespace _LFP_Proyecto2_201700733
         private void GenerarTraduccionToolStripMenuItem_Click(object sender, EventArgs e)
         {
             AnalizadorLexico lex = new AnalizadorLexico();
+            Analizador_Sintactico parser = new Analizador_Sintactico();
             ltokens = lex.escanear(cajita.Text);
+            ltokens.AddLast(new Token(Token.Tipo.ULTIMO, "ultimo", -1, -1));
             lerror = lex.lerr();
             lex.imprimir(ltokens);
             lex.imprimirErrores(lerror);
-            
+            parser.parsear(ltokens);
+            Console.WriteLine("Fi");
         }
 
         private void SalirToolStripMenuItem_Click(object sender, EventArgs e)

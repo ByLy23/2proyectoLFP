@@ -179,6 +179,11 @@ namespace _LFP_Proyecto2_201700733
                         {
                             cambiar(c, 1);
                         }
+                        else if (c=='[')
+                        {
+                            cambiar(c, 15);
+                            
+                        }
                         else
                         {
                             estado = 0;
@@ -400,7 +405,20 @@ namespace _LFP_Proyecto2_201700733
                             cambiar(c, 14);
                         }
                         break;
-
+                    case 15:
+                        if (c==']')
+                        {
+                            cambiar(c, 15);
+                            agregaToken(Token.Tipo.ARREGLO, lexema, fila, columna);
+                            limpiar();
+                        }
+                        else
+                        {
+                            estado = 0;
+                            limpiar();
+                            i--;
+                        }
+                        break;
                 }
                 columna++;
             }
@@ -480,6 +498,9 @@ namespace _LFP_Proyecto2_201700733
                     break;
                 case "graficaVector":
                     agregaToken(Token.Tipo.DIBUJA_VECTOR, lexema, fila, columna);
+                    break;
+                case "default":
+                    agregaToken(Token.Tipo.RES_DEFAULT, lexema, fila, columna);
                     break;
                 default:
                     agregaToken(Token.Tipo.IDENTIFICADOR, lexema, fila, columna);

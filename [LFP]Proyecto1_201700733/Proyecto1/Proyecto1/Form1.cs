@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -421,7 +421,7 @@ namespace Proyecto1
                         {
                             estado = 3;
                             columna = 0;
-                            fila++;
+                            fila++; 
                             lexema = lexema + c;
                         }
                         else if (c == '\r' || c == '\t' || c == '\f' || c == '\b')
