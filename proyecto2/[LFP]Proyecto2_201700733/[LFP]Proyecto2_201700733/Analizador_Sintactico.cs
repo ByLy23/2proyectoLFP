@@ -10,7 +10,7 @@ namespace _LFP_Proyecto2_201700733
     {
         int tokenActual = 0;
         Token controlToken;
-        string guardado;
+        string guardado="";
         LinkedList<Token> listaToken;
         public void parsear(LinkedList<Token> ltoks)
         {
@@ -18,6 +18,10 @@ namespace _LFP_Proyecto2_201700733
             tokenActual = 0;
             controlToken = listaToken.ElementAt(tokenActual);
             INICIO();
+        }
+        public void traducir(String lexema)
+        {
+            guardado = guardado + lexema;
         }
         private void INICIO()
         {
@@ -110,6 +114,7 @@ namespace _LFP_Proyecto2_201700733
                 emparejar(Token.Tipo.SIGNO_IGUAL);
                 valor();
                 masvariables();
+
             }
             else if (controlToken.GetTipo()==Token.Tipo.COMA)
             {
@@ -573,13 +578,13 @@ namespace _LFP_Proyecto2_201700733
             if (controlToken.GetTipo()!=tipo)
             {
                 Console.WriteLine("Error, no es el simbolo que se esperaba"+tips);
+                
             }
             if (controlToken.GetTipo()!=Token.Tipo.ULTIMO)
             {
                 tokenActual++;
                 controlToken = listaToken.ElementAt(tokenActual);
             }
-            
         }
         private void error()
         {

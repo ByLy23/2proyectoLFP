@@ -14,6 +14,7 @@ namespace _LFP_Proyecto2_201700733
     {
         private String testoguardado = "";
         LinkedList<Token> ltokens;
+        public static bool errorLexicoSintactico = false;
         LinkedList<Error> lerror;
         public Form1()
         {
@@ -73,8 +74,19 @@ namespace _LFP_Proyecto2_201700733
             lex.imprimirErrores(lerror);
             parser.parsear(ltokens);
             Console.WriteLine("Fin xd");
-        }
+            if (errorLexicoSintactico)
+            {
 
+            }
+            else
+            {
+                parser.traducir();
+            }
+        }
+        private void traducir()
+        {
+
+        }
         private void SalirToolStripMenuItem_Click(object sender, EventArgs e)
         {
 

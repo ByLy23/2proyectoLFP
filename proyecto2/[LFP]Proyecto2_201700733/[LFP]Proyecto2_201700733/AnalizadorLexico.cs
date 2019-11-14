@@ -165,6 +165,7 @@ namespace _LFP_Proyecto2_201700733
                             else
                             {
                                 agregarError("Simbolo Desconocido", c+"", fila, columna);
+                                Form1.errorLexicoSintactico = true;
                                 estado = 0;
                                 limpiar();
                             }
@@ -265,6 +266,7 @@ namespace _LFP_Proyecto2_201700733
                         {
                             estado = 0;
                             agregarError("Se esperaba el signo: =", lexema, fila, columna);
+                            Form1.errorLexicoSintactico = true;
                             limpiar();
                             i -= 1;
                         }
@@ -361,6 +363,7 @@ namespace _LFP_Proyecto2_201700733
                         {
                             estado = 0;
                             agregarError("Se esperaba: /", c + "", fila, columna);
+                            Form1.errorLexicoSintactico = true;
                             i -= 1;
                         }
                         break;
@@ -372,6 +375,7 @@ namespace _LFP_Proyecto2_201700733
                         else
                         {
                             agregarError("Se esperaba al menos un numero", c + "", fila, columna);
+                            Form1.errorLexicoSintactico = true;
                         }
                         break;
                     case 13:
