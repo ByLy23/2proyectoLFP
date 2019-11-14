@@ -482,6 +482,7 @@ namespace _LFP_Proyecto2_201700733
             identificador();
             traducir(controlToken.getNombre());
             operador();
+            ideFor = controlToken.getNombre();
             respuesta();
             traducir(":");
         }
@@ -626,6 +627,8 @@ namespace _LFP_Proyecto2_201700733
                 emparejar(Token.Tipo.LLAVE_ABIERTA);
                 bloque();
                 emparejar(Token.Tipo.LLAVE_CERRADA);
+                traducir(ideFor1+sumaResta);
+                traducir("\n");
                 masoperaciones();
             }
             
@@ -634,20 +637,30 @@ namespace _LFP_Proyecto2_201700733
         {
             asignacion();
             emparejar(Token.Tipo.PUNTO_COMA);
+            traducir("while");
             condicion();
+            traducir("\n");
             emparejar(Token.Tipo.PUNTO_COMA);
             incremento();
+
         }
+        string ideFor;
+        string sumaResta="";
+        string ideFor1;
         private void asignacion()
         {
             
             tipo();
+            traducir(controlToken.getNombre());
             identificador();
+            traducir(controlToken.getNombre());
             emparejar(Token.Tipo.SIGNO_IGUAL);
             simbolos();
+            traducir("\n");
         }
         private void incremento()
         {
+            ideFor1 = controlToken.getNombre();
             identificador();
             solucion();
         }
@@ -657,21 +670,26 @@ namespace _LFP_Proyecto2_201700733
             {
                 emparejar(Token.Tipo.SIGNO_SUMA);
                 emparejar(Token.Tipo.SIGNO_SUMA);
+                sumaResta = "+=1";
+              
             }
             else if (controlToken.GetTipo()==Token.Tipo.SIGNO_RESTA)
             {
                 emparejar(Token.Tipo.SIGNO_RESTA);
                 emparejar(Token.Tipo.SIGNO_RESTA);
+                sumaResta = "-=1";
             }
         }
         private void bloquewhile()
         {
             if (controlToken.GetTipo()==Token.Tipo.RES_WHILE)
             {
+                traducir(controlToken.getNombre());
                 emparejar(Token.Tipo.RES_WHILE);
                 emparejar(Token.Tipo.PARENTESIS_ABIERTO);
                 condicion();
                 emparejar(Token.Tipo.PARENTESIS_CERRADO);
+                traducir("\n");
                 emparejar(Token.Tipo.LLAVE_ABIERTA);
                 bloque();
                 emparejar(Token.Tipo.LLAVE_CERRADA);
