@@ -133,7 +133,7 @@
             // salirToolStripMenuItem
             // 
             this.salirToolStripMenuItem.Name = "salirToolStripMenuItem";
-            this.salirToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.salirToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.salirToolStripMenuItem.Text = "Guardar Como";
             this.salirToolStripMenuItem.Click += new System.EventHandler(this.SalirToolStripMenuItem_Click);
             // 
@@ -172,14 +172,16 @@
             // erroresToolStripMenuItem
             // 
             this.erroresToolStripMenuItem.Name = "erroresToolStripMenuItem";
-            this.erroresToolStripMenuItem.Size = new System.Drawing.Size(171, 22);
+            this.erroresToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.erroresToolStripMenuItem.Text = "Reporte de Errores";
+            this.erroresToolStripMenuItem.Click += new System.EventHandler(this.ErroresToolStripMenuItem_Click);
             // 
             // tokensToolStripMenuItem
             // 
             this.tokensToolStripMenuItem.Name = "tokensToolStripMenuItem";
-            this.tokensToolStripMenuItem.Size = new System.Drawing.Size(171, 22);
+            this.tokensToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.tokensToolStripMenuItem.Text = "Reporte de Tokens";
+            this.tokensToolStripMenuItem.Click += new System.EventHandler(this.TokensToolStripMenuItem_Click);
             // 
             // limpiarDocumentosRecientesToolStripMenuItem
             // 
@@ -198,8 +200,9 @@
             // acercaDeToolStripMenuItem
             // 
             this.acercaDeToolStripMenuItem.Name = "acercaDeToolStripMenuItem";
-            this.acercaDeToolStripMenuItem.Size = new System.Drawing.Size(135, 22);
+            this.acercaDeToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.acercaDeToolStripMenuItem.Text = "Acerca de...";
+            this.acercaDeToolStripMenuItem.Click += new System.EventHandler(this.AcercaDeToolStripMenuItem_Click);
             // 
             // limpiarTodoToolStripMenuItem
             // 
