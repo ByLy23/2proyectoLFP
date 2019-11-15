@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace _LFP_Proyecto2_201700733
 {
-    class Error
+    public class Error
     {
         private int fila;
         private int columna;

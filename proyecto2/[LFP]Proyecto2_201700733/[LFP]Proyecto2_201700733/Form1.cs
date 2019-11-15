@@ -16,7 +16,7 @@ namespace _LFP_Proyecto2_201700733
         private String testoguardado = "";
         LinkedList<Token> ltokens = new LinkedList<Token>();
         public static bool errorLexicoSintactico = false;
-        LinkedList<Error> lerror = new LinkedList<Error>();
+        public static LinkedList<Error> lerror = new LinkedList<Error>();
         LinkedList<directorio> directorios= new LinkedList<directorio>();
 
         public Form1()
@@ -95,7 +95,13 @@ namespace _LFP_Proyecto2_201700733
         }        
         private void iniciarPython()
         {
-            System.Diagnostics.Process.Start(procesoPy);
+            try
+            {
+                System.Diagnostics.Process.Start(procesoPy);
+            }catch(Exception ex)
+            {
+
+            }
         }
         string procesoPy;
         private void guardarVariables()

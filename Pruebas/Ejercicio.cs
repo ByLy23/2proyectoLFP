@@ -31,7 +31,7 @@ class MyProgram
         Console.WriteLine(y);
         //Deberia de ser 190
         Console.WriteLine("(x+50-10/2)*2= 190 R://"+(x+50-10/2)*2);
-        Console.WriteLine(">>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>");
+        Console.WriteLine(">>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>")
         while(x>=180){
             Console.WriteLine("Iteracion no. "+x);
             x = x - 1 ;

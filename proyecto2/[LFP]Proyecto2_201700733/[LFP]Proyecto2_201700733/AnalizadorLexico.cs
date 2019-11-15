@@ -32,12 +32,6 @@ namespace _LFP_Proyecto2_201700733
                             agregaToken(Token.Tipo.LLAVE_ABIERTA, c+"", fila, columna);
                             limpiar();
                         }
-                        else if (c=='[')
-                        {
-                            estado = 0;
-                            agregaToken(Token.Tipo.CORCHETE_ABIERTO, c + "", fila, columna);
-                            limpiar();
-                        }
                         else if (c == '(')
                         {
                             estado = 0;
@@ -413,14 +407,30 @@ namespace _LFP_Proyecto2_201700733
                         if (c==']')
                         {
                             cambiar(c, 15);
-                            agregaToken(Token.Tipo.ARREGLO, lexema, fila, columna);
+                            agregaToken(Token.Tipo.ARREGLOVACIO, lexema, fila, columna);
                             limpiar();
+                        }
+                        else if (Char.IsLetter(c))
+                        {
+                            cambiar(c, 16);
                         }
                         else
                         {
                             estado = 0;
                             limpiar();
                             i--;
+                        }
+                        break;
+                    case 16:
+                        if (c == ']')
+                        {
+                            cambiar(c, 0);
+                            agregaToken(Token.Tipo.ARREGLOIDE, lexema, fila, columna);
+                            limpiar();
+                        }
+                        else if (Char.IsLetterOrDigit(c))
+                        {
+                            cambiar(c, 16);
                         }
                         break;
                 }

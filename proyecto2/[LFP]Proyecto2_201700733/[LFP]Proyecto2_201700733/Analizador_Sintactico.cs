@@ -13,6 +13,7 @@ namespace _LFP_Proyecto2_201700733
         Token controlToken;
         string guardado="";
         LinkedList<Token> listaToken;
+        LinkedList<Error> listaError= new LinkedList<Error>();
         public void parsear(LinkedList<Token> ltoks)
         {
             this.listaToken = ltoks;
@@ -58,8 +59,12 @@ namespace _LFP_Proyecto2_201700733
                     if (controlToken.GetTipo() == Token.Tipo.PARENTESIS_ABIERTO)
                     {
                         emparejar(Token.Tipo.PARENTESIS_ABIERTO);
-                        emparejar(Token.Tipo.ARREGLO);
-                        identificador();
+                        if (controlToken.GetTipo()==Token.Tipo.ARREGLOVACIO)
+                        {
+
+                            emparejar(Token.Tipo.ARREGLOVACIO);
+                            identificador();
+                        }
                         emparejar(Token.Tipo.PARENTESIS_CERRADO);
                     }
                 }
@@ -85,7 +90,7 @@ namespace _LFP_Proyecto2_201700733
         }
         private void declaracionvariables()
         {
-            if (controlToken.GetTipo()==Token.Tipo.RES_STRING || controlToken.GetTipo() == Token.Tipo.RES_INT || controlToken.GetTipo() == Token.Tipo.RES_FLOAT || controlToken.GetTipo() == Token.Tipo.RES_BOOL || controlToken.GetTipo() == Token.Tipo.RES_CHAR || controlToken.GetTipo() == Token.Tipo.ARREGLO)
+            if (controlToken.GetTipo()==Token.Tipo.RES_STRING || controlToken.GetTipo() == Token.Tipo.RES_INT || controlToken.GetTipo() == Token.Tipo.RES_FLOAT || controlToken.GetTipo() == Token.Tipo.RES_BOOL || controlToken.GetTipo() == Token.Tipo.RES_CHAR || controlToken.GetTipo() == Token.Tipo.ARREGLOVACIO)
             {
                 tipo();
                 traducir(controlToken.getNombre());
@@ -174,10 +179,15 @@ namespace _LFP_Proyecto2_201700733
                 traducir(controlToken.getNombre());
                 emparejar(Token.Tipo.RES_FLOAT);
             }
-            else if (controlToken.GetTipo() == Token.Tipo.ARREGLO)
+            else if (controlToken.GetTipo() == Token.Tipo.ARREGLOVACIO)
             {
                 traducir(controlToken.getNombre());
-                emparejar(Token.Tipo.ARREGLO);
+                emparejar(Token.Tipo.ARREGLOVACIO);
+            }
+            else if (controlToken.GetTipo() == Token.Tipo.ARREGLOIDE)
+            {
+                traducir(controlToken.getNombre());
+                emparejar(Token.Tipo.ARREGLOIDE);
             }
             else
             {
@@ -211,10 +221,10 @@ namespace _LFP_Proyecto2_201700733
                // traducir(controlToken.getNombre());
                 emparejar(Token.Tipo.RES_FLOAT);
             }
-            else if (controlToken.GetTipo() == Token.Tipo.ARREGLO)
+            else if (controlToken.GetTipo() == Token.Tipo.ARREGLOVACIO)
             {
                // traducir(controlToken.getNombre());
-                emparejar(Token.Tipo.ARREGLO);
+                emparejar(Token.Tipo.ARREGLOVACIO);
             }
             else
             {
@@ -246,9 +256,10 @@ namespace _LFP_Proyecto2_201700733
         }
         private void arreglonumeros()
         {
-            if(controlToken.GetTipo() == Token.Tipo.COM_SIMPLE_CHAR || controlToken.GetTipo() == Token.Tipo.RES_FALSE || controlToken.GetTipo() == Token.Tipo.RES_TRUE || controlToken.GetTipo() == Token.Tipo.NUM_DECIMAL || controlToken.GetTipo() == Token.Tipo.NUM_FLOTANTE || controlToken.GetTipo() == Token.Tipo.NUM_ENTERO || controlToken.GetTipo() == Token.Tipo.CADENA)
+            if(controlToken.GetTipo() == Token.Tipo.COM_SIMPLE_CHAR || controlToken.GetTipo() == Token.Tipo.RES_FALSE || controlToken.GetTipo() == Token.Tipo.RES_TRUE || controlToken.GetTipo() == Token.Tipo.NUM_DECIMAL || controlToken.GetTipo() == Token.Tipo.NUM_FLOTANTE || controlToken.GetTipo() == Token.Tipo.NUM_ENTERO || controlToken.GetTipo() == Token.Tipo.CADENA || controlToken.GetTipo()==Token.Tipo.IDENTIFICADOR)
             {
                 simbolos();
+                concatenacionsimbolos();
                 massimbolos();
             }
         }
@@ -259,6 +270,7 @@ namespace _LFP_Proyecto2_201700733
                 traducir(",");
                 emparejar(Token.Tipo.COMA);
                 simbolos();
+                concatenacionsimbolos();
                 massimbolos();
             }
         }
@@ -304,7 +316,11 @@ namespace _LFP_Proyecto2_201700733
                 traducir(controlToken.getNombre());
                 emparejar(Token.Tipo.COM_SIMPLE_CHAR);
             }
-
+            else if (controlToken.GetTipo()==Token.Tipo.ARREGLOIDE)
+            {
+                traducir(controlToken.getNombre());
+                emparejar(Token.Tipo.ARREGLOIDE);
+            }
             else
             {
                 traducir(controlToken.getNombre());
@@ -421,9 +437,10 @@ namespace _LFP_Proyecto2_201700733
         private void muestraescritura()
         {
             traducir("print(");
-            if (controlToken.GetTipo() == Token.Tipo.COM_SIMPLE_CHAR || controlToken.GetTipo() == Token.Tipo.RES_FALSE || controlToken.GetTipo() == Token.Tipo.RES_TRUE || controlToken.GetTipo() == Token.Tipo.NUM_DECIMAL || controlToken.GetTipo() == Token.Tipo.NUM_FLOTANTE || controlToken.GetTipo() == Token.Tipo.NUM_ENTERO || controlToken.GetTipo() == Token.Tipo.CADENA || controlToken.GetTipo()==Token.Tipo.IDENTIFICADOR)
+            if (controlToken.GetTipo() == Token.Tipo.COM_SIMPLE_CHAR || controlToken.GetTipo() == Token.Tipo.RES_FALSE || controlToken.GetTipo() == Token.Tipo.RES_TRUE || controlToken.GetTipo() == Token.Tipo.NUM_DECIMAL || controlToken.GetTipo() == Token.Tipo.NUM_FLOTANTE || controlToken.GetTipo() == Token.Tipo.NUM_ENTERO || controlToken.GetTipo() == Token.Tipo.CADENA || controlToken.GetTipo()==Token.Tipo.IDENTIFICADOR || controlToken.GetTipo()== Token.Tipo.ARREGLOIDE)
             {
                 simbolos();
+                masvalores();
             concatenacionsimbolos();
             }
             
@@ -462,6 +479,7 @@ namespace _LFP_Proyecto2_201700733
                 emparejar(Token.Tipo.PUNTO_COMA);
                 traducir("Aca deberia venir una grafica bien prrona pero no me da tiempo a hacerla :'v xd");
                 traducir("\n");
+                traducir("\t");
                 masoperaciones();
             }
         }
@@ -476,6 +494,7 @@ namespace _LFP_Proyecto2_201700733
                 traducir("\n");
                 emparejar(Token.Tipo.PARENTESIS_CERRADO);
                 emparejar(Token.Tipo.LLAVE_ABIERTA);
+                traducir("\t");
                 bloque();
                 emparejar(Token.Tipo.LLAVE_CERRADA);
                 elses();
@@ -488,7 +507,7 @@ namespace _LFP_Proyecto2_201700733
             identificador();
             traducir(controlToken.getNombre());
             operador();
-            ideFor = controlToken.getNombre();
+        //    traducir(controlToken.getNombre());
             respuesta();
             traducir(":");
         }
@@ -500,6 +519,7 @@ namespace _LFP_Proyecto2_201700733
             }
             else
             {
+                traducir(controlToken.getNombre());
                 identificador();
             }
             
@@ -547,8 +567,7 @@ namespace _LFP_Proyecto2_201700733
                 bloqueswitch();
                 bloquefor();
                 bloquewhile();
-            }
-           
+            }         
         }
         private void elses()
         {
@@ -557,6 +576,7 @@ namespace _LFP_Proyecto2_201700733
                 traducir(controlToken.getNombre());
                 traducir(":");
                 traducir("\n");
+                traducir("\t");
                 emparejar(Token.Tipo.RES_ELSE);
                 emparejar(Token.Tipo.LLAVE_ABIERTA);
                 bloque();
@@ -592,6 +612,7 @@ namespace _LFP_Proyecto2_201700733
                 emparejar(Token.Tipo.NUM_ENTERO);
                 traducir(controlToken.getNombre());
                 traducir("\n");
+                traducir("\t");
                 emparejar(Token.Tipo.DOS_PUNTOS);
                 bloque();
                 emparejar(Token.Tipo.RES_PAUSA);
@@ -616,6 +637,7 @@ namespace _LFP_Proyecto2_201700733
                 traducir("else");
                 traducir(controlToken.getNombre());
                 traducir("\n");
+                traducir("\t");
                 emparejar(Token.Tipo.DOS_PUNTOS);
                 bloque();
                 emparejar(Token.Tipo.RES_PAUSA);
@@ -635,6 +657,7 @@ namespace _LFP_Proyecto2_201700733
                 emparejar(Token.Tipo.LLAVE_CERRADA);
                 traducir(ideFor1+sumaResta);
                 traducir("\n");
+                traducir("\t");
                 masoperaciones();
             }
             
@@ -646,11 +669,11 @@ namespace _LFP_Proyecto2_201700733
             traducir("while");
             condicion();
             traducir("\n");
+            traducir("\t");
             emparejar(Token.Tipo.PUNTO_COMA);
             incremento();
 
         }
-        string ideFor;
         string sumaResta="";
         string ideFor1;
         private void asignacion()
@@ -663,6 +686,7 @@ namespace _LFP_Proyecto2_201700733
             emparejar(Token.Tipo.SIGNO_IGUAL);
             simbolos();
             traducir("\n");
+            traducir("\t");
         }
         private void incremento()
         {
@@ -696,6 +720,7 @@ namespace _LFP_Proyecto2_201700733
                 condicion();
                 emparejar(Token.Tipo.PARENTESIS_CERRADO);
                 traducir("\n");
+                traducir("\t");
                 emparejar(Token.Tipo.LLAVE_ABIERTA);
                 bloque();
                 emparejar(Token.Tipo.LLAVE_CERRADA);
@@ -709,7 +734,6 @@ namespace _LFP_Proyecto2_201700733
                 emparejar(Token.Tipo.RES_CLASE);
                 identificador();
             }
-            else { error(); }
         }
         
         private void identificador()
@@ -718,7 +742,6 @@ namespace _LFP_Proyecto2_201700733
             {
                 emparejar(Token.Tipo.IDENTIFICADOR);
             }
-            else { error(); }
         }
         private void emparejar(Token.Tipo tipo)
         {
@@ -727,6 +750,7 @@ namespace _LFP_Proyecto2_201700733
             if (controlToken.GetTipo()!=tipo)
             {
                 Console.WriteLine("Error, no es el simbolo que se esperaba"+tips);
+                agregarError();
                 Form1.errorLexicoSintactico = true;
             }
             if (controlToken.GetTipo()!=Token.Tipo.ULTIMO)
@@ -735,9 +759,14 @@ namespace _LFP_Proyecto2_201700733
                 controlToken = listaToken.ElementAt(tokenActual);
             }
         }
-        private void error()
+        public Error erires()
         {
-            Console.WriteLine("Error, no es el simbolo que se esperaba");
+            Error err = new Error(controlToken.GetTipo().ToString(), controlToken.getNombre(), controlToken.getFila(), controlToken.getColumna());
+            return err;
+        }
+        public void agregarError()
+        {
+           Form1.lerror.AddLast(erires());
         }
     }
 }

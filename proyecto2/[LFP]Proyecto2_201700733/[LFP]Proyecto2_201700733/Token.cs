@@ -23,6 +23,8 @@ namespace _LFP_Proyecto2_201700733
             RES_TRUE,
             RES_NUEVO,
             RES_IF,
+            ARREGLOVACIO,
+            ARREGLOIDE,
             RES_ELSE,
             RES_SWITCH,
             RES_CASE,
