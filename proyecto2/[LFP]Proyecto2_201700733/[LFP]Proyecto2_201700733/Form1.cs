@@ -14,9 +14,11 @@ namespace _LFP_Proyecto2_201700733
     public partial class Form1 : Form
     {
         private String testoguardado = "";
-        LinkedList<Token> ltokens;
+        LinkedList<Token> ltokens = new LinkedList<Token>();
         public static bool errorLexicoSintactico = false;
-        LinkedList<Error> lerror;
+        LinkedList<Error> lerror = new LinkedList<Error>();
+        LinkedList<directorio> directorios= new LinkedList<directorio>();
+
         public Form1()
         {
             InitializeComponent();
@@ -60,14 +62,16 @@ namespace _LFP_Proyecto2_201700733
         private void LimpiarTodoToolStripMenuItem_Click(object sender, EventArgs e)
         {
             cajita.Clear();
-            consolacajita.Clear();
             resultadocajita.Clear();
         }
 
         private void GenerarTraduccionToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            errorLexicoSintactico = false;
             AnalizadorLexico lex = new AnalizadorLexico();
             Analizador_Sintactico parser = new Analizador_Sintactico();
+            lerror.Clear();
+            ltokens.Clear();
             ltokens = lex.escanear(cajita.Text);
             ltokens.AddLast(new Token(Token.Tipo.ULTIMO, "ultimo", -1, -1));
             lerror = lex.lerr();
@@ -82,8 +86,33 @@ namespace _LFP_Proyecto2_201700733
             else
             {
                 parser.mostrarTraduccion(resultadocajita);
+                guardarVariables();
+                directorios.AddLast(new directorio(testoguardado+".cs"));
+                directorios.AddLast(new directorio(testoguardado + ".py"));
+                iniciarPython();
             }
+         
         }        
+        private void iniciarPython()
+        {
+            System.Diagnostics.Process.Start(procesoPy);
+        }
+        string procesoPy;
+        private void guardarVariables()
+        {
+            SaveFileDialog guardado = new SaveFileDialog();
+            if (guardado.ShowDialog()==DialogResult.OK)
+            {
+                StreamWriter nuevo = File.CreateText(guardado.FileName + ".cs");
+                nuevo.Write(cajita.Text);
+                testoguardado = guardado.FileName;
+                StreamWriter nuevo1 = File.CreateText(guardado.FileName + ".py");
+                procesoPy = guardado.FileName + ".py";
+                nuevo1.Write(resultadocajita.Text);
+                nuevo1.Close();
+                nuevo.Close();
+            }
+        }
         private void Form1_Load(object sender, EventArgs e)
         {
 
@@ -200,6 +229,31 @@ namespace _LFP_Proyecto2_201700733
             {
                 MessageBox.Show("No hay Tokens");
             }
+        }
+
+        private void LimpiarDocumentosRecientesToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            foreach (var item in directorios)
+            {
+                string dir = item.getDireccion();
+                Console.WriteLine(dir);
+                if (System.IO.File.Exists(@dir))
+                {
+                    // Use a try block to catch IOExceptions, to
+                    // handle the case of the file already being
+                    // opened by another process.
+                    try
+                    {
+                        System.IO.File.Delete(dir);
+                    }
+                    catch (System.IO.IOException ex)
+                    {
+                        Console.WriteLine(ex.Message);
+                        return;
+                    }
+                }
+            }
+            
         }
     }
 }

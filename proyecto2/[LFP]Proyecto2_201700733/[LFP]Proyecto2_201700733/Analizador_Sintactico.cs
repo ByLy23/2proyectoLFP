@@ -20,6 +20,7 @@ namespace _LFP_Proyecto2_201700733
             controlToken = listaToken.ElementAt(tokenActual);
             INICIO();
         }
+
         public void mostrarTraduccion(RichTextBox caja)
         {
             caja.Text = guardado;
@@ -33,6 +34,7 @@ namespace _LFP_Proyecto2_201700733
         {
             clase();
             emparejar(Token.Tipo.LLAVE_ABIERTA);
+            traducir("\n");
             cuerpo();
             emparejar(Token.Tipo.LLAVE_CERRADA);
 
@@ -419,8 +421,12 @@ namespace _LFP_Proyecto2_201700733
         private void muestraescritura()
         {
             traducir("print(");
-            simbolos();
+            if (controlToken.GetTipo() == Token.Tipo.COM_SIMPLE_CHAR || controlToken.GetTipo() == Token.Tipo.RES_FALSE || controlToken.GetTipo() == Token.Tipo.RES_TRUE || controlToken.GetTipo() == Token.Tipo.NUM_DECIMAL || controlToken.GetTipo() == Token.Tipo.NUM_FLOTANTE || controlToken.GetTipo() == Token.Tipo.NUM_ENTERO || controlToken.GetTipo() == Token.Tipo.CADENA || controlToken.GetTipo()==Token.Tipo.IDENTIFICADOR)
+            {
+                simbolos();
             concatenacionsimbolos();
+            }
+            
             traducir(")");
             traducir("\n");
         }
@@ -721,7 +727,7 @@ namespace _LFP_Proyecto2_201700733
             if (controlToken.GetTipo()!=tipo)
             {
                 Console.WriteLine("Error, no es el simbolo que se esperaba"+tips);
-                
+                Form1.errorLexicoSintactico = true;
             }
             if (controlToken.GetTipo()!=Token.Tipo.ULTIMO)
             {

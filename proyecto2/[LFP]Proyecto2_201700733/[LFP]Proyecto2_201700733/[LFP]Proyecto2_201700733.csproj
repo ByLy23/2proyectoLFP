@@ -48,6 +48,7 @@
   <ItemGroup>
     <Compile Include="AnalizadorLexico.cs" />
     <Compile Include="Analizador_Sintactico.cs" />
+    <Compile Include="directorio.cs" />
     <Compile Include="Error.cs" />
     <Compile Include="Form1.cs">
       <SubType>Form</SubType>

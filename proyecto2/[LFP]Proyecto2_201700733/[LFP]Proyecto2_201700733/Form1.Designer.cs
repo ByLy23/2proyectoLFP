@@ -51,12 +51,10 @@
             this.limpiarTodoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.cajita = new System.Windows.Forms.RichTextBox();
             this.resultadocajita = new System.Windows.Forms.RichTextBox();
-            this.consolacajita = new System.Windows.Forms.RichTextBox();
             this.contextMenuStrip1.SuspendLayout();
             this.contextMenuStrip2.SuspendLayout();
             this.menuStrip1.SuspendLayout();
@@ -133,7 +131,7 @@
             // salirToolStripMenuItem
             // 
             this.salirToolStripMenuItem.Name = "salirToolStripMenuItem";
-            this.salirToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.salirToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.salirToolStripMenuItem.Text = "Guardar Como";
             this.salirToolStripMenuItem.Click += new System.EventHandler(this.SalirToolStripMenuItem_Click);
             // 
@@ -172,14 +170,14 @@
             // erroresToolStripMenuItem
             // 
             this.erroresToolStripMenuItem.Name = "erroresToolStripMenuItem";
-            this.erroresToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.erroresToolStripMenuItem.Size = new System.Drawing.Size(171, 22);
             this.erroresToolStripMenuItem.Text = "Reporte de Errores";
             this.erroresToolStripMenuItem.Click += new System.EventHandler(this.ErroresToolStripMenuItem_Click);
             // 
             // tokensToolStripMenuItem
             // 
             this.tokensToolStripMenuItem.Name = "tokensToolStripMenuItem";
-            this.tokensToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.tokensToolStripMenuItem.Size = new System.Drawing.Size(171, 22);
             this.tokensToolStripMenuItem.Text = "Reporte de Tokens";
             this.tokensToolStripMenuItem.Click += new System.EventHandler(this.TokensToolStripMenuItem_Click);
             // 
@@ -188,6 +186,7 @@
             this.limpiarDocumentosRecientesToolStripMenuItem.Name = "limpiarDocumentosRecientesToolStripMenuItem";
             this.limpiarDocumentosRecientesToolStripMenuItem.Size = new System.Drawing.Size(238, 22);
             this.limpiarDocumentosRecientesToolStripMenuItem.Text = "Limpiar Documentos Recientes";
+            this.limpiarDocumentosRecientesToolStripMenuItem.Click += new System.EventHandler(this.LimpiarDocumentosRecientesToolStripMenuItem_Click);
             // 
             // ayudaToolStripMenuItem
             // 
@@ -200,7 +199,7 @@
             // acercaDeToolStripMenuItem
             // 
             this.acercaDeToolStripMenuItem.Name = "acercaDeToolStripMenuItem";
-            this.acercaDeToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.acercaDeToolStripMenuItem.Size = new System.Drawing.Size(135, 22);
             this.acercaDeToolStripMenuItem.Text = "Acerca de...";
             this.acercaDeToolStripMenuItem.Click += new System.EventHandler(this.AcercaDeToolStripMenuItem_Click);
             // 
@@ -229,15 +228,6 @@
             this.label2.TabIndex = 5;
             this.label2.Text = " ";
             // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(12, 341);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(45, 13);
-            this.label3.TabIndex = 6;
-            this.label3.Text = "Consola";
-            // 
             // label4
             // 
             this.label4.AutoSize = true;
@@ -260,7 +250,7 @@
             // 
             this.cajita.Location = new System.Drawing.Point(12, 58);
             this.cajita.Name = "cajita";
-            this.cajita.Size = new System.Drawing.Size(362, 280);
+            this.cajita.Size = new System.Drawing.Size(362, 394);
             this.cajita.TabIndex = 9;
             this.cajita.Text = "";
             // 
@@ -268,31 +258,19 @@
             // 
             this.resultadocajita.Location = new System.Drawing.Point(382, 58);
             this.resultadocajita.Name = "resultadocajita";
-            this.resultadocajita.ReadOnly = true;
-            this.resultadocajita.Size = new System.Drawing.Size(403, 280);
+            this.resultadocajita.Size = new System.Drawing.Size(403, 394);
             this.resultadocajita.TabIndex = 10;
             this.resultadocajita.Text = "";
-            // 
-            // consolacajita
-            // 
-            this.consolacajita.Location = new System.Drawing.Point(12, 357);
-            this.consolacajita.Name = "consolacajita";
-            this.consolacajita.ReadOnly = true;
-            this.consolacajita.Size = new System.Drawing.Size(773, 96);
-            this.consolacajita.TabIndex = 11;
-            this.consolacajita.Text = "";
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(841, 464);
-            this.Controls.Add(this.consolacajita);
             this.Controls.Add(this.resultadocajita);
             this.Controls.Add(this.cajita);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.label4);
-            this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.menuStrip1);
@@ -330,14 +308,12 @@
         private System.Windows.Forms.ToolStripMenuItem acercaDeToolStripMenuItem;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.ToolStripMenuItem salirToolStripMenuItem1;
         private System.Windows.Forms.RichTextBox cajita;
         private System.Windows.Forms.ToolStripMenuItem limpiarTodoToolStripMenuItem;
         private System.Windows.Forms.RichTextBox resultadocajita;
-        private System.Windows.Forms.RichTextBox consolacajita;
     }
 }
 

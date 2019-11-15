@@ -534,6 +534,10 @@ namespace _LFP_Proyecto2_201700733
         {
             lErrores.AddLast(new Error(tipo, nombre, fila, columna));
         }
+        public LinkedList<Error> regresalerror()
+        {
+            return lErrores;
+        }
       public  void imprimir(LinkedList<Token> toks)
         {
             foreach (var item in toks)
